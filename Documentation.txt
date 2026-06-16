@@ -408,6 +408,12 @@ CHANGES LOG
             1. Ambient audio volume reduced to 30% (audio.volume = 0.3) so the sitar background is subtle.
             2. Scroll indicator still overlapping buttons: reduced hero logo from clamp(220px,36vw,400px) to clamp(180px,28vw,340px), increased hero min-height from 620px to 700px, and increased scroll indicator margin-top to 3rem. This ensures hero-content always fits within the hero viewport without overflow, keeping the scroll indicator visually clear of both CTA buttons.
             3. Animation lag on mobile: disabled featherFloat on mobile (just fadeIn), disabled scrollPulse on mobile (static bar), stopped wave-bar animations on mobile (8 concurrent animations), removed filter:blur from logoReveal on mobile (blur is GPU-expensive), shortened scroll-reveal transitions to 0.45s on mobile, added will-change hints to continuously looping elements.
+2026-06-16a: Fixed "Request Reservation" button not centered in the reservation card on mobile.
+            Root cause: the 900px mobile media query sets max-width: 260px on all .btn-primary elements, which
+            constrained the button and left it left-aligned (block elements default to left). Added
+            .btn-primary.full-width { max-width: none; } inside the media query so the full-width variant
+            actually fills 100% of the widget-body container.
+            File: css/styles.css (900px media query, after .btn-primary/.btn-secondary rule)
 2026-06-15k: Two remaining mobile/hero bug fixes (second attempt with correct root causes):
             1. Nav drawer still scrolled background on iOS: replaced document.body.style.overflow='hidden' (which iOS ignores) with the position-fixed body-freeze technique: saves scrollY, sets body to position:fixed+top:-scrollY+width:100% on open, restores on close. Also added overscroll-behavior:contain to .nav-mobile.open CSS.
             2. Scroll animation overlapping "Explore the Menu" button (both desktop+mobile): root cause was that .btn-secondary has background:transparent, so the absolutely-positioned gold scroll line at left:50% showed through the button at all z-index levels. Fix: moved .hero-scroll div from being a sibling of .hero-content (absolutely positioned at bottom:2.5rem) to being the last child inside .hero-content (normal document flow, after the CTA). Changed CSS from position:absolute to margin-top:2.5rem + pointer-events:none. Now the scroll indicator is always visually below the buttons, guaranteed by DOM order.
