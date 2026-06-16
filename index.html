@@ -209,16 +209,16 @@
         <li>
           <a href="#menu" class="mobile-link">Menu</a>
           <ul class="mobile-sub" role="list">
-            <li><a href="#menu">Small Plates</a></li>
-            <li><a href="#menu">Mains</a></li>
-            <li><a href="#menu">Biryanis</a></li>
-            <li><a href="#menu">Sides &amp; Breads</a></li>
-            <li><a href="#menu">Desserts</a></li>
-            <li><a href="#menu">Beverages</a></li>
-            <li><a href="#menu">Beer &amp; Wine</a></li>
-            <li><a href="#menu">Cocktails</a></li>
-            <li><a href="#menu">Lunch</a></li>
-            <li><a href="#menu">Dinner</a></li>
+            <li><a href="#menu" data-tab="small-plates">Small Plates</a></li>
+            <li><a href="#menu" data-tab="mains">Mains</a></li>
+            <li><a href="#menu" data-tab="biryanis">Biryanis</a></li>
+            <li><a href="#menu" data-tab="sides-breads">Sides &amp; Breads</a></li>
+            <li><a href="#menu" data-tab="desserts">Desserts</a></li>
+            <li><a href="#menu" data-tab="beverages">Beverages</a></li>
+            <li><a href="#menu" data-tab="beer-wine">Beer &amp; Wine</a></li>
+            <li><a href="#menu" data-tab="cocktails">Cocktails</a></li>
+            <li><a href="#menu" data-tab="lunch">Lunch</a></li>
+            <li><a href="#menu" data-tab="dinner">Dinner</a></li>
           </ul>
         </li>
         <li><a href="#about"        class="mobile-link">About</a></li>
@@ -1594,13 +1594,13 @@
     </div>
   </footer>
 
-  <!-- Dropdown nav tab links — jump to correct tab on click -->
+  <!-- Nav tab links — jump to correct menu tab on click (desktop dropdown + mobile sub-links) -->
   <script>
-    document.querySelectorAll('.dropdown-link[data-tab]').forEach(link => {
-      link.addEventListener('click', e => {
+    document.querySelectorAll('.dropdown-link[data-tab], .mobile-sub a[data-tab]').forEach(link => {
+      link.addEventListener('click', () => {
         const tab = link.dataset.tab;
         const btn = document.querySelector(`.menu-tab[data-tab="${tab}"]`);
-        if (btn) { setTimeout(() => btn.click(), 120); }
+        if (btn) { setTimeout(() => btn.click(), 180); }
       });
     });
   </script>

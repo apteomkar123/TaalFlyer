@@ -184,6 +184,36 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16h: Three bug fixes:
+
+            BUG FIX 1 — Menu dot indicators too close to dietary filters on mobile:
+               The dot indicator row (.menu-tab-dots) injected below the tab strip had only top padding
+               (0.65rem) with no bottom spacing, placing it flush against the .menu-filters row on mobile.
+               Fixed by changing padding to 0.65rem top/bottom and adding margin-bottom: 1rem, creating
+               clear separation between the dots and the filter buttons.
+               File: css/styles.css (.menu-tab-dots mobile media query)
+
+            BUG FIX 2 — "Request Reservation" button not centered on mobile:
+               .btn-primary.full-width was display: inline-block with width: 100%. On mobile, inline-block
+               elements are laid out inline and can appear off-center or misaligned depending on the
+               container's inline formatting context. Changed to display: block so the button is a proper
+               block-level element that fills its parent and is inherently centered within its container.
+               File: css/styles.css (.btn-primary.full-width)
+
+            BUG FIX 3 — Mobile nav submenu links did not switch menu tabs:
+               Tapping "Small Plates", "Mains", etc. in the mobile nav scrolled to the menu section but
+               always left the default "Small Plates" tab active, ignoring the selection. Root cause: mobile
+               sub-links had no data-tab attributes, so the existing tab-switch script (which only selected
+               .dropdown-link[data-tab]) ignored them entirely.
+               Fixed by:
+               1. Adding data-tab="..." to all 10 mobile sub-link <a> elements in index.html
+                  (small-plates, mains, biryanis, sides-breads, desserts, beverages, beer-wine, cocktails,
+                  lunch, dinner)
+               2. Extending the inline nav script selector from '.dropdown-link[data-tab]' to also include
+                  '.mobile-sub a[data-tab]', so both desktop and mobile nav links trigger btn.click()
+                  with a 180ms delay (increased from 120ms to account for mobile menu close animation).
+               Files: index.html (data-tab attributes + inline script selector)
+
 2026-06-16g: Five micro-interaction and mobile features implemented from Changes.md:
 
             FEATURE 1 — Flame Flicker on Spice Icons:

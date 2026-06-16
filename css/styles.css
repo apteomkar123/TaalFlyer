@@ -130,7 +130,7 @@ section { position: relative; }
   transform: translateY(-2px);
 }
 
-.btn-primary.full-width { width: 100%; text-align: center; }
+.btn-primary.full-width { display: block; width: 100%; text-align: center; }
 
 .btn-secondary {
   display: inline-block;
@@ -2034,7 +2034,8 @@ section { position: relative; }
     display: flex;
     justify-content: center;
     gap: 6px;
-    padding: 0.65rem 0 0;
+    padding: 0.65rem 0;
+    margin-bottom: 1rem;
   }
   .menu-tab-dot {
     width: 5px;
