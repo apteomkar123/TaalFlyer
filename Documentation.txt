@@ -1,6 +1,6 @@
 ﻿TAAL INDIAN KITCHEN & BAR â€” Website Documentation
 ===================================================
-Last updated: 2026-06-15
+Last updated: 2026-06-16
 
 FILE STRUCTURE
 --------------
@@ -184,6 +184,46 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16b: Bug fix — spice divider SVGs rendered as garbled text.
+            Root cause: the gallery section's 3-line HTML comment (<!-- ═══ / GALLERY / ═══ -->) was
+            split by the spice divider insertion. The opening <!-- stayed above the spice divider;
+            the closing --> and body text ("GALLERY", garbled box-drawing characters) landed below it.
+            In HTML5 the --> inside "<!-- Animated spice divider -->" closed the outer comment, so the
+            spice SVGs rendered correctly — but the stray "GALLERY" text and garbled ═══ characters on
+            the lines below them were exposed as visible page text between the spice divider and the
+            gallery section. Fixed by deleting the three orphaned comment lines from index.html.
+
+2026-06-16a: Scope correction — reverted 13 unauthorized features added in 2026-06-15m that were not
+            in Changes.md, and implemented the 4 legitimate Changes.md features:
+            REVERTED (removed from HTML/CSS/JS):
+              Ingredient Spotlight (#ingredient-spotlight section + carousel JS)
+              Cocktail Spotlight (#cocktail-spotlight section)
+              Happy Hour Banner (#happy-hour section)
+              Chef Bio Section (#chef section + nav link)
+              Press & Awards (#press section + carousel JS)
+              Testimonials (#testimonials section + carousel JS)
+              Instagram Feed (#instagram section)
+              FAQ Section (#faq section + accordion JS + nav link)
+              Allergen Info Toggles (allergen-wrap divs + JS)
+              Drink Pairings (item-pairing paragraphs)
+              Active Tab Background CSS (removed the tab gradient override)
+              Mailchimp newsletter form (reverted to simple email+arrow form)
+              Tidio live chat comment (removed)
+            IMPLEMENTED (from Changes.md):
+              1. Parallax Food Photography Bands: two full-width decorative parallax bands added —
+                 one before #taal-meaning (caption "The Composition"), one before #reservations
+                 (caption "The Table"). CSS gradient patterns with background-attachment:fixed.
+              2. Animated Spice Divider: three SVG icons (cardamom ellipse, saffron stigma strands,
+                 lotus petals) with gold strokes, floating on a spice-float @keyframes animation,
+                 separated by gradient lines. Placed between the Events and Gallery sections.
+              3. Menu Tab Photo Backgrounds: 10 data-bg attributes added to menu tabs (spice, curry,
+                 biryani, herb, honey, citrus, grain, petal, grain2, malt). Each tab's ::before
+                 pseudo-element shows a unique subtle gradient on hover and when active.
+              4. QR Code Menu Page: new file menu.html — standalone printable page with TAAL-branded
+                 header, CSS-generated QR pattern placeholder (replace with real QR image), numbered
+                 print instructions, Print button, and print CSS that hides instructions. Links back
+                 to index.html. Intended for table tent cards.
+
 2026-06-15m: Major feature batch â€” 20 features added from the Website Ideas list:
             1. Dark/Light Mode Toggle: moon/sun icon button added to nav. Defaults to dark. Preference saved in localStorage. Light mode inverts hero, nav, menu, events, and reservations section backgrounds to cream/off-white while keeping footer dark. CSS [data-theme="light"] overrides.
             2. Back-to-Top Button: floating gold circle button bottom-right, appears after 400px scroll, smooth scrolls to top.
