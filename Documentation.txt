@@ -1,0 +1,236 @@
+TAAL INDIAN KITCHEN & BAR — Website Documentation
+===================================================
+Last updated: 2026-06-15
+
+FILE STRUCTURE
+--------------
+index.html          Main page (single-page layout with anchor sections)
+css/styles.css      All layout, component, and responsive styles
+css/animations.css  Keyframes, scroll-reveal, page loader, and motion styles
+js/main.js          Nav behavior, ambient audio toggle, scroll reveals, parallax, forms
+js/menu.js          Menu tab switching, dietary filtering, spice tooltips
+Branding/           Logo images and hero video (see below)
+
+BRANDING ASSETS
+---------------
+Branding/PHOTO-2026-06-15-16-35-54.jpg    Primary logo (dark green bg) — used in hero
+Branding/PHOTO-2026-06-15-16-35-54_1.jpg  Brand sheet — reference only
+Branding/PHOTO-2026-06-15-16-35-54_2.jpg  Coming-soon flyer (used as video poster)
+Branding/PHOTO-2026-06-15-16-35-54_3.jpg  Coming-soon flyer v2 — used in footer
+Branding/PHOTO-2026-06-15-16-35-54_4.jpg  Circle logo (white bg) — reference
+Branding/VIDEO-2026-06-15-16-35-54.mp4    Hero video — autoplay muted loop
+
+PLACEHOLDER: assets/audio/ambient-sitar.mp3
+  → Add real ambient tabla/sitar MP3 here. Audio toggle in nav is wired up and ready.
+
+FEATURES IMPLEMENTED
+---------------------
+
+NAVIGATION
+  - Fixed transparent nav that turns solid dark green on scroll
+  - Animated SVG sound wave / bansuri motif logo mark
+  - Cinzel font for "TAAL" wordmark, Montserrat for "Indian Kitchen & Bar"
+  - Desktop: dropdown menus for Menu and Events
+  - Dropdown Menu links jump to the correct menu tab on click
+  - Mobile: hamburger menu with slide-down overlay
+  - "Reserve a Table" gold CTA button in nav
+  - Active link highlight as user scrolls through sections
+  - Keyboard accessible: Enter/Space open dropdowns, Escape closes them
+  - Smooth scroll to all anchor links with nav-height offset
+
+HERO SECTION
+  - Autoplay muted looping hero video (Branding/VIDEO-2026-06-15-16-35-54.mp4)
+  - Dark green overlay for readability
+  - Hero logo image (dark green bg variant) centered over video
+  - Neighborhood callout: "Chapel Hill's only upscale Indian dining experience"
+  - Gold divider with diamond separator
+  - Italic tagline: "Inspired by tradition. Crafted for today."
+  - Two CTAs: "Reserve Your Table" (gold) and "Explore the Menu" (outline)
+  - Animated peacock feather SVG — left side, floating animation
+  - Scroll indicator with animated bar
+  - Parallax: hero video translates on scroll (30% rate)
+  - All hero elements have staggered CSS entrance animations
+
+AMBIENT AUDIO
+  - Toggle button in nav (speaker icon)
+  - Plays/pauses assets/audio/ambient-sitar.mp3 (placeholder path — add file)
+  - Active state: ring pulse animation on button
+  - Nav logo SVG sound wave bars animate when audio is playing
+  - Handles autoplay blocked gracefully (no console errors)
+
+PAGE LOADER
+  - Animated gold sound wave bars + "TAAL" text
+  - Fades out after window load + 400ms delay
+
+SCROLL PROGRESS BAR
+  - 2px gold gradient bar at very top of page, tracks scroll position
+
+CALLOUT BANNER
+  - Full-width dark green banner below hero
+  - "Chapel Hill's first and only upscale contemporary Indian dining experience"
+
+ABOUT SECTION
+  - Two-column layout: image placeholder (left) + content (right)
+  - Brand story copy with music/rhythm language ("notes of cardamom", etc.)
+  - Three icon pillars: Exquisite Cuisine, Thoughtful Details, Timeless Experiences
+  - SVG flute motif used in pillar icons
+  - Scroll-reveal animations: left/right entrance
+
+MENU SECTION
+  - Dark green background matching brand
+  - Seven tabs: Dinner, Lunch, Biryanis, Cocktails, Beverages, Beer & Wine, Desserts
+  - Dietary filter buttons: All / Vegetarian / Vegan / Gluten-Free
+  - Filter operates per active tab only
+  - Animated menu item entrance (Intersection Observer stagger)
+  - Mobile: tap menu item to expand/collapse description
+  - Spice level indicators: SVG flame icons (not emoji peppers)
+  - Dietary badges: 🌿 Vegetarian, V Vegan, GF Gluten-Free
+  - Food photo placeholder boxes (easy to replace with real images)
+  - Compact layout for sides, cocktails, beer & wine
+  - Seasonal note + dietary key at bottom
+  - Nav desktop dropdown and mobile sub-links include all 7 tabs
+
+MENU CONTENT (placeholder — replace when real menu is ready)
+  Dinner:     Chef's Specials (3 items: Tasting Menu $95, Weekend Special $68, Seasonal Thali $38),
+              Small Plates (4), Mains (4), Breads & Sides (3)
+  Lunch:      Lunch Specials (3 items: Daily Biryani Special $19, Lunch Tasting $42, Market Sabzi $17),
+              Small Plates (3), Mains (2 business lunch options)
+  Biryanis:   6 biryanis (Hyderabadi Dum $32, Gosht $36, Prawn & Coconut $34, Heirloom Veg $26,
+              TAAL Signature $38) + Accompaniments (Mirchi ka Salan $6, Boondi Raita $5, Pickle $4)
+  Cocktails:  6 cocktails + 2 lassis
+  Beverages:  Indian Teas & Coffees (4), Fresh Pressed & Coolers (4), Lassi Bar (3),
+              Still & Sparkling (3)
+  Beer/Wine:  4 wine categories + 3 beers
+  Desserts:   3 desserts
+
+EVENTS / CORPORATE SECTION
+  - Three cards: Corporate Dining, Private Events, Catering
+  - Each has SVG icon, headline, italic sub, description, feature list, CTA
+  - Hover: lift + border glow animation
+  - Corporate callout: "20 minutes from Research Triangle Park"
+  - Catering: UNC/Duke/NC State + 20-500 guests capacity
+
+GALLERY SECTION
+  - Masonry-style grid (3 cols, some wide items spanning 2 cols)
+  - 6 placeholder slots with labels (easy to swap with real photos)
+  - Hover: dark overlay + subtle scale
+
+RESERVATIONS SECTION
+  - Dark green bg, two columns
+  - Left: hours info (Dinner/Lunch/Bar), walk-in note
+  - Right: reservation form (name, email, date, time, party size, notes)
+  - Date input pre-set to today's date with minimum = today
+  - INTEGRATION NOTE in HTML: replace form with Resy or OpenTable embed
+
+CONTACT SECTION
+  - Light bg, two columns
+  - Left: address, Instagram, website, email, hours grid
+  - Right: map placeholder with location pin SVG + "Get Directions" link,
+           contact form (name, email, subject dropdown, message)
+  - Contact form submits with simulated success state (2-second delay)
+
+FOOTER
+  - Dark background (#120800)
+  - Four columns: Brand (logo + tagline + Instagram), Explore links, Menu links, Newsletter
+  - Footer logo = coming-soon flyer image (light version)
+  - Animated SVG wave motif in footer bottom
+  - Newsletter form (email + arrow submit button)
+  - Copyright, Privacy Policy, Terms, Accessibility links
+
+SEO
+  - Title: "TAAL Indian Kitchen & Bar | The Rhythm of Indian Dining | Chapel Hill, NC"
+  - Meta description targeting upscale Indian, Chapel Hill, Triangle NC
+  - Keywords: "best Indian restaurant Chapel Hill", "upscale Indian Triangle NC", "private dining Chapel Hill"
+  - Schema.org Restaurant structured data (address, hours, cuisine, price range)
+  - Open Graph tags for social sharing
+  - Canonical URL set to taaldining.com
+  - rel="noopener noreferrer" on all external links
+
+ACCESSIBILITY
+  - All images have descriptive alt text
+  - ARIA labels on interactive elements
+  - role="tablist" / role="tab" / role="tabpanel" on menu tabs
+  - role="navigation", role="contentinfo", role="dialog" on key elements
+  - aria-hidden on decorative SVGs and icons
+  - prefers-reduced-motion media query disables all animations
+  - Keyboard-accessible dropdowns (Enter/Space/Escape)
+
+DESIGN SYSTEM
+  Fonts: Cinzel (display), Cormorant Garamond (headings/body), Great Vibes (cursive accents), Montserrat (UI/nav), Lato (body text)
+  Colors:
+    --green-dark:  #0A2B1E  (primary bg)
+    --green-mid:   #0F3D2B  (events section bg)
+    --gold:        #C9A227  (primary accent)
+    --gold-light:  #E8C96A  (hover / light gold)
+    --cream:       #F8F3E8  (light text / bg)
+    --off-white:   #FAF7F2  (light section bg)
+    --dark:        #120800  (footer bg)
+
+ANIMATIONS
+  - CSS keyframes: fadeIn, fadeUp, fadeLeft, fadeRight, scaleIn, logoReveal
+  - featherFloat: peacock feather gentle sway
+  - waveBar1–5: sound wave bar bounce (loader + audio-playing logo)
+  - scrollPulse: hero scroll indicator
+  - pulseRing: audio toggle active state ring
+  - drawLine: footer SVG wave entrance
+  - Page loader: animated wave bars + logo fade
+  - Scroll reveal: IntersectionObserver drives .reveal-up / .reveal-left / .reveal-right
+  - Stagger utility: .stagger class delays children 0–500ms
+
+RESPONSIVE
+  - Breakpoint 1100px: events grid → single column, footer → 2 columns
+  - Breakpoint 900px: about → single column, nav → hamburger only, footer → single column
+  - Breakpoint 640px: hero CTA → stacked, menu items → single column, gallery → single column
+
+CHANGES LOG
+------------
+2026-06-15i: Comprehensive mobile responsiveness pass (375–640px):
+            Container & nav padding reduced to 1.25rem on mobile.
+            Section vertical padding reduced from 7rem to 4rem on mobile.
+            Menu tabs switch to horizontal-scroll single row (no wrap) with hidden scrollbar — all 10 tabs accessible by swiping.
+            Nav hamburger and audio toggle enlarged to 44×44px touch targets.
+            Filter buttons min-height 36px. Form inputs font-size 1rem (prevents iOS auto-zoom on focus).
+            Form labels increased to 0.75rem for readability. Form inputs padding increased to 0.85rem.
+            Newsletter form stacks vertically on mobile.
+            Hero peacock feather hidden on mobile (declutter). Events grid full-width on mobile.
+            Footer top padding reduced. All existing 640px/900px/1100px breakpoints preserved.
+2026-06-15h: Fixed ambient audio autoplay. Attempts direct play on window load; if browser blocks it, starts on first user interaction (scroll/click/touch/keydown). Mute button icon now shows speaker-waves when playing and slashed-speaker when muted. Audio starts playing by default.
+2026-06-15g: Audio autoplay attempted on load + first-interaction fallback. Icon logic corrected: speaker icon = currently playing (click to mute), muted icon = currently muted (click to play).
+2026-06-15f: Reordered menu tabs to: Small Plates, Mains, Biryanis, Sides & Breads, Desserts, Beverages, Beer & Wine, Cocktails, Lunch, Dinner.
+            Small Plates is now the default active tab on page load.
+            Desktop nav dropdown and mobile sub-links updated to match new order.
+2026-06-15e: Restructured menu: Small Plates, Mains, Sides & Breads promoted to standalone all-day tabs.
+            Dinner tab now shows Chef's Specials only. Lunch tab shows Lunch Specials only.
+            Removed Lunch Plates and Business Lunch sections (superseded by all-day menu tabs).
+            Desktop nav dropdown and mobile sub-links updated with all 10 tabs.
+2026-06-15d: Expanded menu from 5 tabs to 7 tabs: added Biryanis and Beverages (Non-Alcoholic).
+            Dinner tab: added Chef's Specials category at top (Tasting Menu $95, Weekend Special $68, Seasonal Vegetable Thali $38).
+            Lunch tab: added Lunch Specials category at top (Daily Biryani Special $19, Lunch Tasting $42, Market Sabzi Special $17).
+            Biryanis tab: 6 biryanis + Accompaniments sub-section.
+            Beverages tab: 4 categories — Indian Teas & Coffees, Fresh Pressed & Coolers, Lassi Bar, Still & Sparkling.
+            Updated desktop nav dropdown and mobile sub-links to include Biryanis and Beverages.
+2026-06-15c: Removed video from page loader entirely. Loader is now dark green bg with animated wave bars + TAAL wordmark only.
+            Loader dismiss timing reverted to 400ms after window load.
+            Added favicon: Branding/PHOTO-2026-06-15-16-35-54.jpg (also set as apple-touch-icon).
+            Hero logo image uses mix-blend-mode:screen — dark green box background disappears into gradient, gold logo floats cleanly.
+2026-06-15: Moved hero video from blurry background to page loader animation.
+            Hero now uses a dark green CSS gradient background (#061711 → #0A2B1E → #0d3525).
+            Loader plays video fullscreen with dark overlay + TAAL wordmark + wave bars on top.
+            Loader stays visible for minimum 3.5 seconds so video has time to show.
+            Removed hero parallax (no longer relevant without video element).
+            Added subtle decorative gold wave SVGs to hero background.
+            Added radial gold glow behind hero logo area.
+
+THINGS TO ADD LATER
+--------------------
+  - Real menu photos (replace .img-placeholder divs with <img> tags)
+  - Real gallery photos (replace .gallery-placeholder divs with <img> tags)
+  - Resy or OpenTable embed (replace reservation form in #reservations)
+  - Ambient sitar/tabla MP3 at assets/audio/ambient-sitar.mp3
+  - Real restaurant interior photos for about section
+  - Phone number (add to contact section)
+  - Real email setup for contact/events forms (connect to backend or Formspree)
+  - Newsletter email service connection (Mailchimp, etc.)
+  - Google Analytics or similar tracking
+  - Google Maps embed (replace .map-placeholder)
+  - Favicon / apple-touch-icon

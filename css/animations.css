@@ -1,0 +1,426 @@
+/* ============================================================
+   TAAL Indian Kitchen & Bar — Animations
+   ============================================================ */
+
+/* 1. KEYFRAMES
+   ============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hero logo entrance */
+@keyframes logoReveal {
+  0%   { opacity: 0; transform: scale(0.88) translateY(20px); filter: blur(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+/* Scroll progress pulse */
+@keyframes scrollPulse {
+  0%   { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  50%  { opacity: 0.3; transform: scaleY(0.4); transform-origin: top; }
+  100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+/* Peacock feather gentle float */
+@keyframes featherFloat {
+  0%   { transform: translateY(0) rotate(-2deg); }
+  33%  { transform: translateY(-10px) rotate(1deg); }
+  66%  { transform: translateY(-4px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+
+/* Sound wave bars */
+@keyframes waveBar1 {
+  0%, 100% { transform: scaleY(1);   }
+  50%       { transform: scaleY(2.2); }
+}
+@keyframes waveBar2 {
+  0%, 100% { transform: scaleY(1.5); }
+  50%       { transform: scaleY(0.6); }
+}
+@keyframes waveBar3 {
+  0%, 100% { transform: scaleY(0.8); }
+  50%       { transform: scaleY(2.5); }
+}
+@keyframes waveBar4 {
+  0%, 100% { transform: scaleY(2);   }
+  50%       { transform: scaleY(0.4); }
+}
+@keyframes waveBar5 {
+  0%, 100% { transform: scaleY(1.2); }
+  50%       { transform: scaleY(1.8); }
+}
+
+/* Gold shimmer for dividers */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Underline draw */
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Pulse ring (for audio toggle when playing) */
+@keyframes pulseRing {
+  0%   { transform: scale(1); opacity: 0.8; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Gold dot blink (catering section bullets) */
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Page load overlay */
+@keyframes pageLoaderFade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Loader video fade in */
+@keyframes loaderVideoFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Gentle ambient glow */
+@keyframes ambientGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(201, 162, 39, 0.12); }
+}
+
+/* 2. PAGE LOAD
+   ============================================================ */
+
+/* Page loader overlay */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--green-dark);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+.loader-logo {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.loader-sub {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(201, 162, 39, 0.6);
+  animation: fadeIn 1s ease 0.3s forwards;
+  opacity: 0;
+}
+
+/* Animated loading wave bars */
+.loader-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 28px;
+}
+
+.loader-wave span {
+  display: block;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  transform-origin: bottom;
+  opacity: 0.7;
+}
+
+.loader-wave span:nth-child(1) { height: 14px; animation: waveBar1 1s ease-in-out infinite; }
+.loader-wave span:nth-child(2) { height: 22px; animation: waveBar2 1s ease-in-out 0.12s infinite; }
+.loader-wave span:nth-child(3) { height: 18px; animation: waveBar3 1s ease-in-out 0.24s infinite; }
+.loader-wave span:nth-child(4) { height: 28px; animation: waveBar4 1s ease-in-out 0.06s infinite; }
+.loader-wave span:nth-child(5) { height: 20px; animation: waveBar5 1s ease-in-out 0.18s infinite; }
+.loader-wave span:nth-child(6) { height: 12px; animation: waveBar1 1s ease-in-out 0.3s infinite; }
+.loader-wave span:nth-child(7) { height: 24px; animation: waveBar3 1s ease-in-out 0.09s infinite; }
+
+/* 3. SCROLL REVEAL
+   ============================================================ */
+
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+}
+
+.reveal-up    { transform: translateY(40px); }
+.reveal-left  { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-fade  { transform: none; }
+
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-fade.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children */
+.stagger > *:nth-child(1) { transition-delay: 0s; }
+.stagger > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger > *:nth-child(6) { transition-delay: 0.5s; }
+
+/* 4. HERO ENTRANCE
+   ============================================================ */
+
+.hero-logo-wrap   { animation: logoReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both; }
+.hero-neighborhood{ animation: fadeUp 0.9s ease 0.85s both; }
+.hero-divider     { animation: fadeUp 0.9s ease 1s both; }
+.hero-tagline     { animation: fadeUp 0.9s ease 1.1s both; }
+.hero-cta         { animation: fadeUp 0.9s ease 1.25s both; }
+.hero-scroll      { animation: fadeIn 1s ease 2s both; }
+.hero-feather     { animation: featherFloat 6s ease-in-out 1.5s infinite, fadeIn 1s ease 1s both; }
+
+/* 5. NAVIGATION ANIMATIONS
+   ============================================================ */
+
+.nav.transparent .nav-link,
+.nav.transparent .nav-logo-name,
+.nav.transparent .nav-logo-sub { color: var(--cream); }
+
+.nav.transparent .nav-logo-name { color: var(--gold); }
+
+/* Active audio toggle pulse ring */
+.audio-toggle.playing {
+  position: relative;
+}
+
+.audio-toggle.playing::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  animation: pulseRing 1.5s ease-out infinite;
+}
+
+/* 6. MENU ANIMATIONS
+   ============================================================ */
+
+.menu-panel {
+  animation: fadeIn 0.4s ease;
+}
+
+.menu-item {
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease, opacity 0.35s ease;
+}
+
+.menu-item.hidden {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+}
+
+/* Tab transition */
+.menu-tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(201, 162, 39, 0.06);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.menu-tab:hover::before { transform: scaleX(1); }
+
+/* 7. ANIMATED SOUND WAVE (nav logo on page)
+   ============================================================ */
+
+.sound-wave-icon line {
+  transform-origin: bottom center;
+}
+
+/* Animate when audio is playing */
+.audio-playing .sound-wave-icon line:nth-child(1)  { animation: waveBar1 0.8s ease-in-out infinite; }
+.audio-playing .sound-wave-icon line:nth-child(2)  { animation: waveBar2 0.8s ease-in-out 0.06s infinite; }
+.audio-playing .sound-wave-icon line:nth-child(3)  { animation: waveBar3 0.8s ease-in-out 0.12s infinite; }
+.audio-playing .sound-wave-icon line:nth-child(4)  { animation: waveBar4 0.8s ease-in-out 0.18s infinite; }
+.audio-playing .sound-wave-icon line:nth-child(5)  { animation: waveBar5 0.8s ease-in-out 0.24s infinite; }
+.audio-playing .sound-wave-icon line:nth-child(6)  { animation: waveBar1 0.8s ease-in-out 0.30s infinite; }
+.audio-playing .sound-wave-icon line:nth-child(7)  { animation: waveBar3 0.8s ease-in-out 0.15s infinite; }
+.audio-playing .sound-wave-icon line:nth-child(8)  { animation: waveBar2 0.8s ease-in-out 0.09s infinite; }
+
+/* 8. EVENT CARD HOVER
+   ============================================================ */
+
+.event-card {
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.event-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(201,162,39,0.25);
+}
+
+/* 9. GALLERY HOVER EFFECT
+   ============================================================ */
+
+.gallery-item {
+  transition: transform 0.4s ease;
+}
+
+.gallery-placeholder {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 43, 30, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover::after { opacity: 1; }
+
+/* 10. CALLOUT BANNER TICKER (optional)
+   ============================================================ */
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* 11. BUTTON RIPPLE
+   ============================================================ */
+
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-secondary::after,
+.btn-outline::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.btn-primary:active::after,
+.btn-secondary:active::after,
+.btn-outline:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* 12. FOOTER WAVE ANIMATION
+   ============================================================ */
+
+.footer-wave-svg path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawLine 2s ease 0.5s forwards;
+}
+
+/* 13. SCROLL PROGRESS BAR
+   ============================================================ */
+
+#scroll-progress {
+  transition: width 80ms linear;
+  background: linear-gradient(to right, var(--gold), var(--gold-light), var(--gold));
+}
+
+/* 14. MOBILE MENU SLIDE
+   ============================================================ */
+
+.nav-mobile {
+  animation: none;
+}
+
+.nav-mobile.open {
+  animation: fadeDown 0.3s ease;
+}
+
+/* 15. REDUCE MOTION SUPPORT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal-up, .reveal-left, .reveal-right, .reveal-fade {
+    opacity: 1;
+    transform: none;
+  }
+}
