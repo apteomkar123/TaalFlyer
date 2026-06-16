@@ -192,7 +192,7 @@
     <p class="cover-eyebrow">Indian Kitchen &amp; Bar Â· Chapel Hill</p>
     <h1 class="cover-title">TAAL</h1>
     <p class="cover-sub">Remaining Website Ideas â€” Needs Assets or External Accounts</p>
-    <p class="cover-note">Updated June 2026 Â· All Quick Wins, Design Polish, and pure UI features have been implemented</p>
+    <p class="cover-note">Updated June 2026 Â· Flame Flicker, Kinetic Logo, Magnetic Button, Mobile CTA Bar, and Swipeable Tabs implemented</p>
   </div>
 
   <div class="page">
@@ -361,8 +361,118 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!--  NEW DESIGN IDEAS — June 2026 brainstorm                -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div style="background: var(--green-dark); padding: 3rem 3rem 1.5rem; text-align: center; border-top: 2px solid var(--gold);">
+    <p class="cover-eyebrow">New Concepts · June 2026</p>
+    <h2 class="cover-title" style="font-size: 2.2rem;">Additional Design Ideas</h2>
+    <p class="cover-sub">Enhancements to deepen elegance, interactivity, and storytelling</p>
+  </div>
+
+  <div class="page">
+
+    <!-- ── VISUAL & ATMOSPHERE ── -->
+    <p class="section-label">Category 01</p>
+    <h2 class="section-title">Visual &amp; Atmosphere</h2>
+    <p class="section-intro">Purely aesthetic enhancements that elevate the ambient feel of the site without requiring external assets or accounts. All implementable with CSS and lightweight JS.</p>
+
+    <div class="cat-header">
+      <div class="cat-badge">Pure CSS / Canvas</div>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="idea-row">
+      <div class="idea-name">Saffron Particle Hero</div>
+      <div class="idea-desc">Tiny gold particles drift upward through the hero section, like saffron threads or embers floating in still air. Implemented via lightweight canvas or pure CSS keyframes. Transforms a static gradient into something alive and atmospheric without weighing down performance.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Animated Rangoli Dividers</div>
+      <div class="idea-desc">Replace some of the current tabla/sitar SVG dividers with slowly rotating geometric mandala or rangoli patterns — gold lines on dark green, subtle 60-second rotation loop. Cultural, distinctive, and deepens the Indian heritage motif beyond musical instruments alone.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Cinematic Page Wipe Loader</div>
+      <div class="idea-desc">Replace the current wave-bar page loader with a single vertical gold line that splits the screen in two halves — left slides left, right slides right — revealing the site beneath like a curtain parting. A signature treatment seen on high-end hospitality and luxury brand sites.</div>
+    </div>
+    <!-- ── STORYTELLING ── -->
+    <p class="section-label" style="margin-top: 3rem;">Category 02</p>
+    <h2 class="section-title">Storytelling Sections</h2>
+    <p class="section-intro">New page sections that deepen the TAAL narrative — adding personality, credibility, and emotional context before the reservation ask.</p>
+
+    <div class="cat-header">
+      <div class="cat-badge">New Sections</div>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="idea-row">
+      <div class="idea-name">7-Course Tasting Menu Scroll</div>
+      <div class="idea-desc">A dedicated cinematic section where each of the 7 courses occupies its own full-viewport panel. Scroll through: amuse-bouche → appetizer → soup → sorbet → main → cheese → dessert. Each panel shows the course name in large Cormorant Garamond, a one-line description, and a food image. Reads like an editorial lookbook built into the page.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Stats Counter Section</div>
+      <div class="idea-desc">A horizontal band between two sections: "3 Years in the Making · 7-Course Journey · 40+ Cocktails · One Franklin Street." Numbers count up from zero when scrolled into view via IntersectionObserver. Punchy, builds credibility, and reinforces the premium positioning without long copy.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Chef Profile Teaser</div>
+      <div class="idea-desc">Two-column layout: chef photo on the left, a signature quote in Great Vibes cursive on the right with a short bio in Lato below. Currently the site has no personality behind the food — a chef section adds a face, voice, and trust signal that fine dining guests expect. Slots naturally between About and Menu.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Press &amp; Recognition Strip</div>
+      <div class="idea-desc">A slim horizontal bar with media logos (Chapel Hill Magazine, Indy Week, The Daily Tar Heel, etc.) rendered in muted cream at low opacity, each accompanied by a short pull-quote on hover. Social proof without visual clutter. Sits just below the hero or before reservations as a credibility anchor.</div>
+    </div>
+
+    <!-- ── INTERACTIVITY ── -->
+    <p class="section-label" style="margin-top: 3rem;">Category 03</p>
+    <h2 class="section-title">Interactivity</h2>
+    <p class="section-intro">Interactive features that make browsing feel curated and intentional — turning passive scrolling into an active, sensory preview of the dining experience.</p>
+
+    <div class="cat-header">
+      <div class="cat-badge">JS-Driven Enhancements</div>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="idea-row">
+      <div class="idea-name">Menu Item Story Modals</div>
+      <div class="idea-desc">Click any menu item → a full-screen overlay opens with: a large food photograph, the dish's origin story, key spices highlighted as tags, a chef's note in italics, and a cocktail or wine pairing suggestion. Transforms the menu from a list into a narrative dining preview. Each dish becomes its own editorial moment.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Flavor Compass</div>
+      <div class="idea-desc">An SVG radial/radar chart on each menu item card showing its flavor profile across five axes: Spicy · Sweet · Earthy · Tangy · Creamy. The shape fills in on card hover. Makes the menu scannable and visually rich in a way unique to fine dining — guests can navigate flavors before ordering.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">"Open Now" Status Badge</div>
+      <div class="idea-desc">JavaScript checks the current local time against the restaurant's hardcoded hours and shows a green pulsing dot + "Open Now" or a muted "Opens at 5 PM" beside the nav logo. Practical and polished — removes the friction of guessing whether to walk in, critical for Franklin Street foot traffic.</div>
+    </div>
+
+    <!-- ── LAYOUT / NEW SECTIONS ── -->
+    <p class="section-label" style="margin-top: 3rem;">Category 04</p>
+    <h2 class="section-title">Layout &amp; New Sections</h2>
+    <p class="section-intro">Structural additions and redesigns that give underserved parts of the restaurant — the bar program, private dining, guest reviews — the spotlight they deserve.</p>
+
+    <div class="cat-header">
+      <div class="cat-badge">Layout Changes</div>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="idea-row">
+      <div class="idea-name">Horizontal Cocktail Showcase</div>
+      <div class="idea-desc">A horizontally scrolling rail of signature cocktails placed between the menu and events sections. Each card shows the cocktail name in Cinzel, illustrated ingredient tags (saffron, cardamom, rose, vetiver), a short description, and a photo placeholder. Gives the bar program the same spotlight as the food — important for a restaurant with 40+ cocktails.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Private Dining Full-Bleed Section</div>
+      <div class="idea-desc">Currently events are three modest cards. A more impactful treatment: one dramatic full-width section with a dark atmospheric background image (or deep gradient), a centered Cinzel heading — "An Unforgettable Evening, On Your Terms" — and a single gold inquiry button. Better matches the emotional weight of high-value private bookings.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Testimonials Carousel</div>
+      <div class="idea-desc">Elegant pull-quote cards styled like editorial magazine quotes — large Cormorant Garamond italic for the quote, small Montserrat for the attribution and star rating. Slow auto-scroll with pause on hover. Sits between events and reservations as a social proof bridge before the booking ask.</div>
+    </div>
+
+  </div>
+  <!-- end new ideas page -->
+
   <div class="doc-footer">
-    <p>TAAL Indian Kitchen &amp; Bar Â· Chapel Hill, NC Â· taaldining.com Â· Updated June 2026</p>
+    <p>TAAL Indian Kitchen &amp; Bar &middot; Chapel Hill, NC &middot; taaldining.com &middot; Updated June 2026</p>
   </div>
 
 </body>

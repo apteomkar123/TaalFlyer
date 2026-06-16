@@ -127,4 +127,64 @@
     });
   }
 
+  /* ── SWIPEABLE MENU TABS + DOT INDICATORS
+  ──────────────────────────────────────────────────── */
+  const menuTabsContainer = document.querySelector('.menu-tabs');
+
+  /* Build dot row */
+  const dotWrap = document.createElement('div');
+  dotWrap.className = 'menu-tab-dots';
+  Array.from(tabs).forEach((_, i) => {
+    const d = document.createElement('span');
+    d.className = 'menu-tab-dot' + (i === 0 ? ' active' : '');
+    dotWrap.appendChild(d);
+  });
+  if (menuTabsContainer) menuTabsContainer.insertAdjacentElement('afterend', dotWrap);
+
+  const dots = dotWrap.querySelectorAll('.menu-tab-dot');
+
+  function syncDots() {
+    const activeIdx = Array.from(tabs).findIndex(t => t.classList.contains('active'));
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+    if (window.innerWidth <= 768 && tabs[activeIdx]) {
+      tabs[activeIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  tabs.forEach(tab => tab.addEventListener('click', syncDots));
+
+  /* Touch swipe handler */
+  const menuContentEl = document.querySelector('.menu-content');
+  if (menuContentEl) {
+    let swipeX = 0;
+    let swipeY = 0;
+
+    menuContentEl.addEventListener('touchstart', e => {
+      swipeX = e.changedTouches[0].clientX;
+      swipeY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    menuContentEl.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - swipeX;
+      const dy = e.changedTouches[0].clientY - swipeY;
+      if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+
+      const tabArr  = Array.from(tabs);
+      const curIdx  = tabArr.findIndex(t => t.classList.contains('active'));
+      const nextIdx = dx < 0
+        ? Math.min(curIdx + 1, tabArr.length - 1)
+        : Math.max(curIdx - 1, 0);
+      if (nextIdx === curIdx) return;
+
+      const slideClass = dx < 0 ? 'slide-from-right' : 'slide-from-left';
+      tabArr[nextIdx].click();
+
+      const nextPanel = document.getElementById('tab-' + tabArr[nextIdx].dataset.tab);
+      if (nextPanel) {
+        nextPanel.classList.add(slideClass);
+        nextPanel.addEventListener('animationend', () => nextPanel.classList.remove(slideClass), { once: true });
+      }
+    }, { passive: true });
+  }
+
 })();

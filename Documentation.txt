@@ -184,6 +184,65 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16g: Five micro-interaction and mobile features implemented from Changes.md:
+
+            FEATURE 1 — Flame Flicker on Spice Icons:
+               Active flame SVG icons inside .spice-level indicators now animate with a multi-step
+               flameFlicker @keyframe (scale + rotate + opacity variations). Each flame in a multi-flame
+               spice level has a randomized duration (1.65s, 1.9s, 2.1s) and staggered delay (0s, 0.28s,
+               0.55s) to mimic the natural asymmetry of real candleflame. transform-origin set to 50% 90%
+               (base of flame). prefers-reduced-motion disables the animation. Inactive/unfilled flames
+               (not rendered) remain static by design. CSS only — no JS.
+               Files: css/animations.css (section 17 — @keyframes flameFlicker + .spice-level .flame-icon rules)
+
+            FEATURE 2 — Kinetic TAAL Logo:
+               The hero logo image (.hero-logo-img) now reacts to the ambient sitar audio track. When
+               audio plays, Web Audio API creates an AnalyserNode connected to the audio element; a
+               requestAnimationFrame loop reads the first 6 bass frequency bins, smooths them with an
+               exponential moving average (α=0.14), and applies a subtle scale transform (max +3%). When
+               audio is muted/paused or Web Audio API is unavailable, a CSS fallback animation (logoBreath
+               — gentle 1.2% scale pulse over 3.5s) plays instead. Falls back gracefully to CSS if
+               AudioContext or createMediaElementSource fails. audioContextInitialized guard prevents
+               double-initialization. The kinetic RAF is paused when audio pauses.
+               Files: css/animations.css (section 18 — @keyframes logoBreath, .hero-logo-img.kinetic-fallback),
+                      js/main.js (initKineticAudioCtx, startKineticRaf, stopKineticRaf functions)
+
+            FEATURE 3 — Magnetic Reserve Button:
+               The "Reserve Your Table" CTA button in the hero (.hero-cta .btn-primary) follows the
+               cursor within its bounds with a magnetic pull effect (~28% of cursor-to-center distance,
+               capped at 18px). On mousemove: fast 0.08s ease transition snaps to cursor pull. On
+               mouseleave: 0.65s spring easing (cubic-bezier 0.25,0.46,0.45,0.94) snaps back to origin.
+               Only activates on pointer: fine devices (mouse/trackpad) — skipped entirely on touch
+               screens via window.matchMedia('(pointer: fine)').
+               Files: js/main.js (heroReserveBtn mousemove/mouseleave handlers)
+
+            FEATURE 4 — Sticky Bottom CTA Bar (mobile only):
+               On viewports ≤768px, a fixed bar is pinned to the bottom of the viewport with two full-
+               width buttons: "Reserve" (gold fill, links to #reservations) and "Menu" (gold outline,
+               links to #menu). Uses env(safe-area-inset-bottom) padding for iPhone notch safety.
+               Background: rgba(10,43,30,0.97) with backdrop-filter:blur(8px) for a frosted glass effect.
+               Disappears via translateY(110%) when the #reservations section enters the viewport
+               (IntersectionObserver, threshold 0.1) to avoid redundancy with the form. The back-to-top
+               button is lifted to bottom: 5.5rem so it clears the bar. Smooth scroll handled by the
+               existing a[href^="#"] listener in main.js.
+               Files: index.html (mobile-cta-bar div before </body>),
+                      css/styles.css (mobile-cta-bar, .mobile-cta-btn, .mobile-cta-reserve/menu),
+                      js/main.js (IntersectionObserver on #reservations → .hidden toggle)
+
+            FEATURE 5 — Swipeable Menu Tabs (mobile only):
+               Touch-swipe support added to the menu content area (.menu-content). On touchend, horizontal
+               swipe distance is compared against a 50px threshold; the swipe must be 1.5x wider than
+               tall to avoid triggering on diagonal scrolls. Swiping left advances to the next tab,
+               swiping right goes to the previous. The newly active panel gets a slide-from-right or
+               slide-from-left CSS animation class (cleared on animationend). A dot indicator row is
+               dynamically injected below .menu-tabs showing current position (10 dots, one per tab);
+               the active dot is gold and scales to 1.4×. Dots update on both tab click and swipe. The
+               active tab scrollIntoView (inline:center) on mobile so it stays visible in the horizontal
+               scroll rail.
+               Files: css/animations.css (section 19 — @keyframes slideFromRight/Left, .slide-from-* rules),
+                      css/styles.css (.menu-tab-dots, .menu-tab-dot mobile media query),
+                      js/menu.js (dotWrap creation, syncDots, touchstart/touchend swipe handler)
+
 2026-06-16f: Feature + two bug fixes:
             FEATURE — Instrument line dividers replacing spice dividers:
                The four animated spice dividers (large cream-background blocks with cardamom/saffron/lotus

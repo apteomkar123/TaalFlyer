@@ -363,4 +363,91 @@
     }, 1200);
   };
 
+
+  /* ── KINETIC TAAL LOGO
+  ──────────────────────────────────────────────────── */
+  const heroLogoImg = document.querySelector('.hero-logo-img');
+  if (heroLogoImg) {
+    heroLogoImg.classList.add('kinetic-fallback');
+
+    let analyserNode, kineticRaf;
+    let kineticInitialized = false;
+
+    function initKineticAudioCtx() {
+      if (kineticInitialized || !audio || !window.AudioContext) return;
+      try {
+        const actx = new (window.AudioContext || window.webkitAudioContext)();
+        analyserNode = actx.createAnalyser();
+        analyserNode.fftSize = 256;
+        const src = actx.createMediaElementSource(audio);
+        src.connect(analyserNode);
+        analyserNode.connect(actx.destination);
+        kineticInitialized = true;
+        startKineticRaf();
+      } catch (e) { /* keep CSS fallback */ }
+    }
+
+    function startKineticRaf() {
+      if (kineticRaf) return;
+      heroLogoImg.classList.remove('kinetic-fallback');
+      const freq = new Uint8Array(analyserNode.frequencyBinCount);
+      let smooth = 0;
+      function frame() {
+        kineticRaf = requestAnimationFrame(frame);
+        analyserNode.getByteFrequencyData(freq);
+        let bass = 0;
+        for (let i = 0; i < 6; i++) bass += freq[i];
+        smooth = smooth * 0.86 + (bass / 6 / 255) * 0.14;
+        heroLogoImg.style.transform = 'scale(' + (1 + smooth * 0.03).toFixed(4) + ')';
+      }
+      frame();
+    }
+
+    function stopKineticRaf() {
+      if (kineticRaf) { cancelAnimationFrame(kineticRaf); kineticRaf = null; }
+      heroLogoImg.style.transform = '';
+      heroLogoImg.classList.add('kinetic-fallback');
+    }
+
+    if (audio) {
+      audio.addEventListener('play', () => {
+        initKineticAudioCtx();
+        if (kineticInitialized && !kineticRaf) startKineticRaf();
+      });
+      audio.addEventListener('pause', stopKineticRaf);
+    }
+  }
+
+  /* ── MAGNETIC RESERVE BUTTON
+  ──────────────────────────────────────────────────── */
+  const heroReserveBtn = document.querySelector('.hero-cta .btn-primary');
+  if (heroReserveBtn && window.matchMedia('(pointer: fine)').matches) {
+    heroReserveBtn.addEventListener('mousemove', e => {
+      const r  = heroReserveBtn.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width  / 2)) * 0.28;
+      const dy = (e.clientY - (r.top  + r.height / 2)) * 0.28;
+      const max = 18;
+      const tx = Math.max(-max, Math.min(max, dx));
+      const ty = Math.max(-max, Math.min(max, dy));
+      heroReserveBtn.style.transition = 'transform 0.08s ease';
+      heroReserveBtn.style.transform  = 'translate(' + tx + 'px,' + ty + 'px)';
+    });
+    heroReserveBtn.addEventListener('mouseleave', () => {
+      heroReserveBtn.style.transition = 'transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94)';
+      heroReserveBtn.style.transform  = '';
+    });
+  }
+
+  /* ── STICKY MOBILE BOTTOM CTA BAR
+  ──────────────────────────────────────────────────── */
+  const mobileCTABar = document.getElementById('mobile-cta-bar');
+  if (mobileCTABar) {
+    const resSec = document.getElementById('reservations');
+    if (resSec && 'IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        mobileCTABar.classList.toggle('hidden', entries[0].isIntersecting);
+      }, { threshold: 0.1 }).observe(resSec);
+    }
+  }
+
 })();

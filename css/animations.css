@@ -475,3 +475,50 @@
     transform: none;
   }
 }
+
+/* 17. FLAME FLICKER — Active spice level icons
+   ============================================================ */
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1) rotate(-0.5deg);    opacity: 0.85; }
+  20%       { transform: scale(1.07) rotate(1.2deg);  opacity: 0.95; }
+  40%       { transform: scale(0.95) rotate(-1.8deg); opacity: 0.78; }
+  65%       { transform: scale(1.06) rotate(0.9deg);  opacity: 0.92; }
+  80%       { transform: scale(0.98) rotate(-0.8deg); opacity: 0.87; }
+}
+
+.spice-level .flame-icon {
+  transform-origin: 50% 90%;
+  animation: flameFlicker 1.9s ease-in-out infinite;
+}
+.spice-level .flame-icon:nth-child(2) { animation-duration: 1.65s; animation-delay: 0.28s; }
+.spice-level .flame-icon:nth-child(3) { animation-duration: 2.1s;  animation-delay: 0.55s; }
+
+/* 18. KINETIC TAAL LOGO — CSS fallback when audio is off or unavailable
+   ============================================================ */
+
+@keyframes logoBreath {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.012); }
+}
+
+.hero-logo-img.kinetic-fallback {
+  animation: logoBreath 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* 19. MENU SLIDE — Swipeable tab panel transitions
+   ============================================================ */
+
+@keyframes slideFromRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFromLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.menu-panel.slide-from-right { animation: slideFromRight 0.33s ease; }
+.menu-panel.slide-from-left  { animation: slideFromLeft  0.33s ease; }

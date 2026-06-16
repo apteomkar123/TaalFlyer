@@ -1978,3 +1978,74 @@ section { position: relative; }
 
 .menu-tab:hover::before { opacity: 1; }
 .menu-tab.active::before { opacity: 1; }
+
+
+/* ── STICKY MOBILE BOTTOM CTA BAR ── */
+.mobile-cta-bar { display: none; }
+
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 950;
+    background: rgba(10, 43, 30, 0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(201, 162, 39, 0.25);
+    padding: 0.85rem 1.25rem;
+    padding-bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
+    gap: 0.75rem;
+    transform: translateY(0);
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .mobile-cta-bar.hidden { transform: translateY(110%); }
+  .mobile-cta-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius);
+    min-height: 44px;
+    transition: opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-cta-btn:active { opacity: 0.75; }
+  .mobile-cta-reserve { background: var(--gold); color: var(--green-dark); }
+  .mobile-cta-menu { border: 1px solid var(--gold); color: var(--gold); }
+  /* Lift back-to-top above the CTA bar */
+  .back-to-top { bottom: 5.5rem; }
+}
+
+/* ── MENU TAB DOT INDICATORS (swipe position) ── */
+.menu-tab-dots { display: none; }
+
+@media (max-width: 768px) {
+  .menu-tab-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.65rem 0 0;
+  }
+  .menu-tab-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(201, 162, 39, 0.22);
+    transition: background 0.25s ease, transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .menu-tab-dot.active {
+    background: var(--gold);
+    transform: scale(1.4);
+  }
+}
