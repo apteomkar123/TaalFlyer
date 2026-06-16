@@ -99,7 +99,7 @@
   const audioIconOff = document.querySelector('.audio-icon-off');
   let audioPlaying = true;
 
-  if (audio) audio.volume = 0.3;
+  if (audio) audio.volume = 0.12;
 
   if (audioToggle && audio) {
     /* Attempt autoplay on load; if blocked, start on first user interaction */
