@@ -465,7 +465,7 @@ section { position: relative; }
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 620px;
+  min-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -524,7 +524,7 @@ section { position: relative; }
 }
 
 .hero-logo-img {
-  width: clamp(220px, 36vw, 400px);
+  width: clamp(180px, 28vw, 340px);
   margin: 0 auto;
   mix-blend-mode: screen;
 }
@@ -582,7 +582,7 @@ section { position: relative; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   opacity: 0.6;
   pointer-events: none;
 }

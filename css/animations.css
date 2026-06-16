@@ -410,7 +410,40 @@
   animation: fadeDown 0.3s ease;
 }
 
-/* 15. REDUCE MOTION SUPPORT
+/* 15. MOBILE PERFORMANCE
+   ============================================================ */
+
+/* GPU compositing hints for looping animations */
+.hero-feather,
+.scroll-bar,
+.loader-wave span,
+.audio-toggle.playing::before {
+  will-change: transform, opacity;
+}
+
+@media (max-width: 900px) {
+  /* Remove filter:blur from logo entrance — blur is GPU-expensive on mobile */
+  @keyframes logoReveal {
+    0%   { opacity: 0; transform: scale(0.92) translateY(15px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* Stop continuous floating animation on the feather */
+  .hero-feather { animation: fadeIn 0.8s ease 0.8s both; }
+
+  /* Static scroll bar instead of pulsing (saves a paint cycle every 2s) */
+  .scroll-bar { animation: none; opacity: 0.7; }
+
+  /* Stop wave bar animations on mobile — they run 8 concurrent animations */
+  .audio-playing .sound-wave-icon line { animation: none !important; }
+
+  /* Faster scroll-reveal transitions on mobile */
+  .reveal-up, .reveal-left, .reveal-right, .reveal-fade {
+    transition-duration: 0.45s;
+  }
+}
+
+/* 16. REDUCE MOTION SUPPORT
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
