@@ -184,6 +184,22 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16e: Two bug fixes in index.html:
+            1. Nav arrow mojibake: "Menu ›" and "Events ›" nav dropdown arrows were stored as â€º (mojibake
+               for U+203A, single right angle quotation mark). Fixed.
+               Additional en dash ranges (Fri–Sun, Wed–Sun, 8–40, etc.) were stored as â€" (mojibake for
+               U+2013, en dash — different from the em dash fix in 2026-06-16c). Fixed.
+               Textarea placeholder ellipsis (…) was stored as â€¦ (mojibake for U+2026). Fixed.
+            2. Section dividers — parallax green bars replaced with spice dividers:
+               The two "Parallax Food Photography Bands" (320px tall dark green gradient bars) between
+               About→TAAL Meaning and Gallery→Reservations were displaying as plain green bars with no
+               photos, obscuring the animated spice divider aesthetic. Both parallax bands removed and
+               replaced with animated spice dividers (matching the existing one between Events and Gallery).
+               A new spice divider was also added between the TAAL Meaning and Menu sections where none
+               existed. Total spice dividers: 4 (About→TAAL Meaning, TAAL Meaning→Menu, Events→Gallery,
+               Gallery→Reservations). Parallax band CSS (.parallax-band, .parallax-inner) remains in
+               styles.css but is now unused — can be cleaned up when real food photos are added.
+
 2026-06-16c: Two bug fixes — encoding/character corruption in index.html:
             1. Section dividers: All 12 HTML section-divider comments had their ═ (U+2550) box-drawing
                characters stored as mojibake (UTF-8 bytes reinterpreted as Windows-1252). Fixed by replacing
