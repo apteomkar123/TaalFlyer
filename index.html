@@ -1,1186 +1,666 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TAAL Indian Kitchen &amp; Bar | The Rhythm of Indian Dining | Chapel Hill, NC</title>
+  <title>TAAL Indian Kitchen &amp; Bar | Coming Soon</title>
 
-  <!-- SEO -->
-  <meta name="description" content="Chapel Hill's only upscale contemporary Indian dining experience. TAAL Indian Kitchen &amp; Bar at 310 W Franklin St. Inspired by tradition, crafted for today.">
-  <meta name="keywords" content="best Indian restaurant Chapel Hill, upscale Indian Triangle NC, private dining Chapel Hill, Indian fine dining Franklin Street, Indian restaurant RTP">
-  <meta name="author" content="TAAL Indian Kitchen &amp; Bar">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://taaldining.com">
+  <meta name="description" content="Chapel Hill's only upscale contemporary Indian dining experience. Coming soon to 310 W Franklin St.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="TAAL Indian Kitchen &amp; Bar | Chapel Hill, NC">
-  <meta property="og:description" content="The Rhythm of Indian Dining. Chapel Hill's only contemporary fine dining Indian experience on Franklin Street.">
-  <meta property="og:type" content="restaurant">
-  <meta property="og:url" content="https://taaldining.com">
-  <meta property="og:image" content="https://taaldining.com/Branding/PHOTO-2026-06-15-16-35-54.jpg">
-
-  <!-- Favicon -->
   <link rel="icon" href="Branding/PHOTO-2026-06-15-16-35-54.jpg" type="image/jpeg">
   <link rel="apple-touch-icon" href="Branding/PHOTO-2026-06-15-16-35-54.jpg">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    :root {
+      --green-dark:  #1E2416;
+      --green-mid:   #2B3A1C;
+      --green-light: #3B4E28;
+      --cognac:      #8B4520;
+      --gold:        #C9A227;
+      --gold-light:  #E8C96A;
+      --gold-pale:   #E8D090;
+      --cream:       #EAD9C4;
+      --cream-dark:  #D4BA8A;
+      --off-white:   #F2E8D8;
+      --dark:        #0F0E08;
+      --muted:       #7A6845;
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "TAAL Indian Kitchen & Bar",
-    "description": "Chapel Hill's only upscale contemporary Indian dining experience on Franklin Street.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "310 W Franklin St",
-      "addressLocality": "Chapel Hill",
-      "addressRegion": "NC",
-      "postalCode": "27516",
-      "addressCountry": "US"
-    },
-    "url": "https://taaldining.com",
-    "sameAs": ["https://instagram.com/taal.dining"],
-    "servesCuisine": ["Indian", "Contemporary Indian"],
-    "priceRange": "$$$",
-    "openingHoursSpecification": [
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday"],"opens":"17:00","closes":"22:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday"],"opens":"11:30","closes":"22:00"},
-      {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"11:00","closes":"22:00"}
-    ]
-  }
-  </script>
+      --font-display: 'Cinzel', serif;
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-ui:      'Montserrat', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+
+    body {
+      font-family: var(--font-heading);
+      background: var(--cream);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER ── */
+    .header {
+      width: 100%;
+      text-align: center;
+      padding: 4rem 0 0;
+      background: linear-gradient(160deg, #D4BA8A 0%, #EAD9C4 40%, #F2E8D8 70%, #D4BA8A 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 42%, rgba(201,162,39,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Subtle background wave */
+    .header-wave-bg {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      opacity: 0.07;
+    }
+
+    .logo-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 0 2rem 3.5rem;
+    }
+
+    .logo-img {
+      width: clamp(200px, 40vw, 420px);
+      mix-blend-mode: multiply;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(201,162,39,0.45);
+    }
+
+    .divider-diamond { color: var(--gold); font-size: 0.5rem; }
+
+    .coming-soon {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cognac);
+      letter-spacing: 0.04em;
+    }
+
+    .tagline {
+      font-family: var(--font-ui);
+      font-size: clamp(0.8rem, 1.8vw, 1rem);
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+    }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      border: 1px solid rgba(30,36,22,0.2);
+      padding: 0.5rem 1.25rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ── FLYER ── */
+    .flyer-section {
+      width: 100%;
+      max-width: 720px;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .section-label {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cognac);
+    }
+
+    .flyer-img {
+      width: 100%;
+      max-width: 580px;
+      border: 1px solid var(--cream-dark);
+      box-shadow: 0 12px 48px rgba(30,36,22,0.14);
+    }
+
+    /* ── CAROUSEL ── */
+    .carousel-section {
+      width: 100%;
+      padding: 4rem 0;
+      background: var(--green-dark);
+      overflow: hidden;
+    }
+
+    .carousel-section .section-label {
+      color: var(--gold);
+      text-align: center;
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    .carousel-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .carousel-track {
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .carousel-slide:hover img { transform: scale(1.03); }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(201,162,39,0.85);
+      color: var(--green-dark);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover { background: var(--gold-light); }
+    .carousel-btn-prev { left: 0; }
+    .carousel-btn-next { right: 0; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1.75rem;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(201,162,39,0.25);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: var(--gold);
+      transform: scale(1.5);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      width: 100%;
+      background: var(--dark);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .footer-wave {
+      margin-bottom: 1.75rem;
+      opacity: 0.25;
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--gold-pale);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: rgba(232,208,144,0.55);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-address {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: rgba(232,208,144,0.3);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: rgba(232,208,144,0.4);
+    }
+
+    .footer-sep {
+      width: 1px;
+      height: 20px;
+      background: rgba(201,162,39,0.15);
+      margin: 1.5rem auto;
+    }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: rgba(232,208,144,0.2);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(10, 8, 4, 0.92);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      cursor: default;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: rgba(232,208,144,0.7);
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .lightbox-close:hover { color: var(--gold); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(201,162,39,0.15);
+      border: 1px solid rgba(201,162,39,0.35);
+      color: rgba(232,208,144,0.8);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(201,162,39,0.35);
+      color: var(--gold);
+    }
+
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: rgba(232,208,144,0.4);
+    }
+
+    .carousel-slide { cursor: zoom-in; }
+
+    @media (max-width: 640px) {
+      .lightbox-nav { width: 40px; height: 40px; }
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
+    }
+
+    .header-feature-img {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center;
+      margin-top: 2rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .header { padding: 3rem 0 0; }
+      .logo-wrap { padding: 0 1.25rem 2.5rem; }
+      .flyer-section { padding: 2.5rem 1.25rem; }
+      .carousel-wrap { padding: 0 2.5rem; }
+      .carousel-btn { width: 38px; height: 38px; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Page Loader -->
-  <div id="page-loader" role="status" aria-label="Loading TAAL">
-    <div class="loader-wave" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="loader-logo">TAAL</div>
-    <div class="loader-sub">The Rhythm of Indian Dining</div>
-  </div>
+  <!-- Header -->
+  <header class="header">
+    <svg class="header-wave-bg" viewBox="0 0 1400 120" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 60 Q 175 20 350 60 Q 525 100 700 60 Q 875 20 1050 60 Q 1225 100 1400 60" fill="none" stroke="#C9A227" stroke-width="1.5"/>
+      <path d="M0 80 Q 175 40 350 80 Q 525 120 700 80 Q 875 40 1050 80 Q 1225 120 1400 80" fill="none" stroke="#C9A227" stroke-width="1"/>
+    </svg>
 
-  <!-- ════════════════════════════════════════════════
-       NAVIGATION
-  ════════════════════════════════════════════════ -->
-  <nav id="main-nav" class="nav transparent" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
+    <div class="logo-wrap">
+      <img src="Branding/white taal logo no bg.png"
+           alt="TAAL Indian Kitchen &amp; Bar"
+           class="logo-img"
+           width="400" height="400">
 
-      <!-- Logo -->
-      <a href="#home" class="nav-logo" aria-label="TAAL Indian Kitchen &amp; Bar — Home">
-        <div class="nav-logo-icon" aria-hidden="true">
-          <svg class="sound-wave-icon" viewBox="0 0 88 38" xmlns="http://www.w3.org/2000/svg">
-            <!-- Sound wave / rhythm bars -->
-            <line x1="8"  y1="30" x2="8"  y2="16" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="8"  cy="14" r="2.5" fill="#C9A227"/>
-            <line x1="18" y1="30" x2="18" y2="8"  stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="18" cy="6"  r="2.5" fill="#C9A227"/>
-            <line x1="28" y1="30" x2="28" y2="14" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="28" cy="12" r="2.5" fill="#C9A227"/>
-            <line x1="38" y1="30" x2="38" y2="4"  stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="38" cy="2"  r="2.5" fill="#C9A227"/>
-            <line x1="48" y1="30" x2="48" y2="10" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="48" cy="8"  r="2.5" fill="#C9A227"/>
-            <line x1="58" y1="30" x2="58" y2="18" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="58" cy="16" r="2.5" fill="#C9A227"/>
-            <line x1="68" y1="30" x2="68" y2="7"  stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="68" cy="5"  r="2.5" fill="#C9A227"/>
-            <line x1="78" y1="30" x2="78" y2="20" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="78" cy="18" r="2.5" fill="#C9A227"/>
-            <!-- Flute base line -->
-            <line x1="4"  y1="30" x2="82" y2="30" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="nav-logo-text">
-          <span class="nav-logo-name">TAAL</span>
-          <span class="nav-logo-sub">Indian Kitchen &amp; Bar</span>
-        </div>
-      </a>
+      <p class="tagline">Indian Kitchen &amp; Bar</p>
 
-      <!-- Desktop Nav Links -->
-      <ul class="nav-links" role="list">
-
-        <li class="nav-item has-dropdown">
-          <a href="#menu" class="nav-link" aria-haspopup="true">Menu <span class="nav-arrow" aria-hidden="true">›</span></a>
-          <div class="dropdown" role="menu">
-            <div class="dropdown-inner">
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="small-plates">Small Plates</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="mains">Mains</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="biryanis">Biryanis</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="sides-breads">Sides &amp; Breads</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="desserts">Desserts</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="beverages">Beverages</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="beer-wine">Beer &amp; Wine</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="cocktails">Cocktails</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="lunch">Lunch</a>
-              <a href="#menu" class="dropdown-link" role="menuitem" data-tab="dinner">Dinner</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a href="#about" class="nav-link">About</a>
-        </li>
-
-        <li class="nav-item has-dropdown">
-          <a href="#events" class="nav-link" aria-haspopup="true">Events <span class="nav-arrow" aria-hidden="true">›</span></a>
-          <div class="dropdown" role="menu">
-            <div class="dropdown-inner">
-              <a href="#corporate"      class="dropdown-link" role="menuitem">Corporate Dining</a>
-              <a href="#private-events" class="dropdown-link" role="menuitem">Private Events</a>
-              <a href="#catering"       class="dropdown-link" role="menuitem">Catering</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a href="#gallery" class="nav-link">Gallery</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="#contact" class="nav-link">Contact</a>
-        </li>
-
-      </ul>
-
-      <!-- CTA -->
-      <div class="nav-cta">
-        <a href="#reservations" class="btn-reserve">Reserve a Table</a>
-      </div>
-
-      <!-- Hamburger (mobile) -->
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
-      <ul class="mobile-links" role="list">
-        <li>
-          <a href="#menu" class="mobile-link">Menu</a>
-          <ul class="mobile-sub" role="list">
-            <li><a href="#menu" data-tab="small-plates">Small Plates</a></li>
-            <li><a href="#menu" data-tab="mains">Mains</a></li>
-            <li><a href="#menu" data-tab="biryanis">Biryanis</a></li>
-            <li><a href="#menu" data-tab="sides-breads">Sides &amp; Breads</a></li>
-            <li><a href="#menu" data-tab="desserts">Desserts</a></li>
-            <li><a href="#menu" data-tab="beverages">Beverages</a></li>
-            <li><a href="#menu" data-tab="beer-wine">Beer &amp; Wine</a></li>
-            <li><a href="#menu" data-tab="cocktails">Cocktails</a></li>
-            <li><a href="#menu" data-tab="lunch">Lunch</a></li>
-            <li><a href="#menu" data-tab="dinner">Dinner</a></li>
-          </ul>
-        </li>
-        <li><a href="#about"        class="mobile-link">About</a></li>
-        <li>
-          <a href="#events" class="mobile-link">Events</a>
-          <ul class="mobile-sub" role="list">
-            <li><a href="#corporate">Corporate Dining</a></li>
-            <li><a href="#private-events">Private Events</a></li>
-            <li><a href="#catering">Catering</a></li>
-          </ul>
-        </li>
-        <li><a href="#gallery"      class="mobile-link">Gallery</a></li>
-        <li><a href="#contact"      class="mobile-link">Contact</a></li>
-        <li><a href="#reservations" class="mobile-link mobile-reserve">Reserve a Table</a></li>
-      </ul>
-    </div>
-  </nav>
-
-
-  <!-- ════════════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════════════ -->
-  <section id="home" class="hero" aria-label="Hero">
-
-    <!-- Decorative background elements -->
-    <div class="hero-bg-deco" aria-hidden="true">
-      <svg class="hero-wave-bg" viewBox="0 0 1400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 150 Q 175 60 350 150 Q 525 240 700 150 Q 875 60 1050 150 Q 1225 240 1400 150" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.07"/>
-        <path d="M0 180 Q 175 90 350 180 Q 525 270 700 180 Q 875 90 1050 180 Q 1225 270 1400 180" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.05"/>
-        <path d="M0 120 Q 175 30 350 120 Q 525 210 700 120 Q 875 30 1050 120 Q 1225 210 1400 120" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.04"/>
-      </svg>
-    </div>
-
-    <div class="hero-content">
-
-      <div class="hero-logo-wrap">
-        <img src="Branding/white taal logo no bg.png"
-             alt="TAAL Indian Kitchen &amp; Bar — The Rhythm of Indian Dining"
-             class="hero-logo-img"
-             width="400" height="400">
-      </div>
-
-      <p class="hero-neighborhood">Chapel Hill's only upscale Indian dining experience</p>
-
-      <div class="hero-divider" aria-hidden="true">
+      <div class="divider" aria-hidden="true">
         <span class="divider-line"></span>
         <span class="divider-diamond">◆</span>
         <span class="divider-line"></span>
       </div>
 
-      <p class="hero-tagline">
-        <em>Inspired by tradition. Crafted for today.<br>Experiences that stay with you.</em>
-      </p>
+      <h2 class="coming-soon">Coming Soon</h2>
 
-      <div class="hero-cta">
-        <a href="#reservations" class="btn-primary">Reserve Your Table</a>
-        <a href="#menu"         class="btn-secondary">Explore the Menu</a>
-      </div>
-
-      <!-- Scroll indicator placed after CTA so it never overlaps the buttons -->
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="scroll-text">scroll</span>
-        <div class="scroll-bar"></div>
-      </div>
-
+      <span class="location-pill">
+        <svg width="12" height="14" viewBox="0 0 12 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M6 1C3.24 1 1 3.24 1 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5z"/>
+          <circle cx="6" cy="6" r="1.75"/>
+        </svg>
+        310 W Franklin St &nbsp;·&nbsp; Chapel Hill, NC
+      </span>
     </div>
 
-    <!-- Peacock feather decorative -->
-    <div class="hero-feather" aria-hidden="true">
-      <svg class="feather-svg" viewBox="0 0 60 210" xmlns="http://www.w3.org/2000/svg">
-        <!-- Stem -->
-        <line x1="30" y1="210" x2="30" y2="72" stroke="#C9A227" stroke-width="1.5" opacity="0.55"/>
-        <!-- Eye ellipses -->
-        <ellipse cx="30" cy="58" rx="20" ry="28" fill="none" stroke="#1B5E40" stroke-width="1.5" opacity="0.6"/>
-        <ellipse cx="30" cy="58" rx="13" ry="18" fill="none" stroke="#2E7D52" stroke-width="1" opacity="0.55"/>
-        <ellipse cx="30" cy="58" rx="8"  ry="10" fill="#0D47A1" opacity="0.45"/>
-        <ellipse cx="30" cy="58" rx="4.5" ry="5.5" fill="#1565C0" opacity="0.6"/>
-        <ellipse cx="30" cy="56" rx="2"  ry="2.5" fill="#90CAF9" opacity="0.8"/>
-        <!-- Barbs -->
-        <line x1="30" y1="80"  x2="10" y2="58" stroke="#1B5E40" stroke-width="0.9" opacity="0.45"/>
-        <line x1="30" y1="80"  x2="50" y2="58" stroke="#1B5E40" stroke-width="0.9" opacity="0.45"/>
-        <line x1="30" y1="95"  x2="6"  y2="68" stroke="#1B5E40" stroke-width="0.8" opacity="0.38"/>
-        <line x1="30" y1="95"  x2="54" y2="68" stroke="#1B5E40" stroke-width="0.8" opacity="0.38"/>
-        <line x1="30" y1="112" x2="3"  y2="80" stroke="#C9A227" stroke-width="0.7" opacity="0.28"/>
-        <line x1="30" y1="112" x2="57" y2="80" stroke="#C9A227" stroke-width="0.7" opacity="0.28"/>
-        <line x1="30" y1="130" x2="0"  y2="95" stroke="#C9A227" stroke-width="0.5" opacity="0.18"/>
-        <line x1="30" y1="130" x2="60" y2="95" stroke="#C9A227" stroke-width="0.5" opacity="0.18"/>
+    <img src="Branding/PHOTO-2026-06-17-11-01-25.jpg"
+         alt="TAAL Indian Kitchen &amp; Bar"
+         class="header-feature-img">
+  </header>
+
+  <!-- Flyer -->
+  <section class="flyer-section">
+    <p class="section-label">Opening Announcement</p>
+    <img src="Branding/PHOTO-2026-06-15-16-35-54_2.jpg"
+         alt="TAAL Indian Kitchen &amp; Bar — Coming Soon Flyer"
+         class="flyer-img"
+         loading="eager">
+  </section>
+
+  <!-- Image Carousel -->
+  <section class="carousel-section">
+    <span class="section-label">A Glimpse of TAAL</span>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track">
+        <div class="carousel-inner" id="carouselInner">
+          <div class="carousel-slide">
+            <img src="Branding/PHOTO-2026-06-15-16-35-54.jpg" alt="TAAL — Branding" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="Branding/PHOTO-2026-06-15-16-35-54_1.jpg" alt="TAAL — Brand Sheet" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="Branding/PHOTO-2026-06-15-16-35-54_3.jpg" alt="TAAL — Flyer v2" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="Branding/PHOTO-2026-06-15-16-35-54_4.jpg" alt="TAAL — Circle Logo" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="Interior/PHOTO-2026-06-16-17-39-39.jpg" alt="TAAL — Interior" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="Interior/PHOTO-2026-06-16-17-39-40.jpg" alt="TAAL — Interior" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img src="Interior/PHOTO-2026-06-16-17-39-40 (3).jpg" alt="TAAL — Interior" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-btn carousel-btn-prev" id="prevBtn" aria-label="Previous image">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <button class="carousel-btn carousel-btn-next" id="nextBtn" aria-label="Next image">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Image navigation"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <svg class="footer-wave" viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 10 Q 50 2 100 10 Q 150 18 200 10 Q 250 2 300 10 Q 350 18 400 10" fill="none" stroke="#C9A227" stroke-width="1"/>
+    </svg>
+
+    <p class="footer-name">TAAL Indian Kitchen &amp; Bar</p>
+    <p class="footer-tagline">The Rhythm of Indian Dining</p>
+    <p class="footer-address">310 W Franklin St, Chapel Hill, NC 27516</p>
+
+    <span class="footer-instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
       </svg>
-    </div>
-
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════
-       NEIGHBOURHOOD CALLOUT
-  ════════════════════════════════════════════════ -->
-  <div class="callout-banner" role="note">
-    <div class="callout-inner">
-      <span class="callout-icon" aria-hidden="true">♩</span>
-      <p>"Chapel Hill's first and only upscale contemporary Indian dining experience on Franklin Street"</p>
-      <span class="callout-icon" aria-hidden="true">♩</span>
-    </div>
-  </div>
-
-
-  <!-- ════════════════════════════════════════════════
-       ABOUT
-  ════════════════════════════════════════════════ -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-grid">
-
-        <!-- Images -->
-        <div class="about-images reveal-left">
-          <div class="about-img-wrap">
-            <div class="about-img-placeholder">
-              <span style="font-size:2rem;opacity:0.3">🍽</span>
-              <span>Restaurant Photo</span>
-            </div>
-          </div>
-          <div class="about-img-accent" aria-hidden="true">
-            <svg class="wave-motif" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 30 Q 27 8 55 30 Q 82 52 110 30 Q 137 8 165 30 Q 192 52 220 30"
-                    fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.35"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Content -->
-        <div class="about-content reveal-right">
-          <p class="section-label">Our Story</p>
-          <h2 class="section-title">Where Tradition<br><em>Meets Today</em></h2>
-
-          <div class="about-text">
-            <p>Nestled in the heart of Chapel Hill on Franklin Street, TAAL is more than a restaurant — it is a celebration of rhythm, flavour, and culture. The word <em>taal</em> means rhythm in Hindi, and every dish, every evening is composed like music — layered, intentional, deeply felt.</p>
-            <p>We bring the finest traditions of Indian cuisine into a contemporary space, with ingredients chosen for their stories and techniques that honour generations of culinary artistry. From <em>notes of cardamom</em> in our small plates to the <em>harmony of the season</em> in our chef's selections, each plate is a composition.</p>
-            <p>Located on Chapel Hill's iconic Franklin Street, TAAL is proud to be the first upscale Indian dining destination in the Triangle's most vibrant neighbourhood — 20 minutes from Research Triangle Park, at the heart of it all.</p>
-          </div>
-
-          <div class="about-pillars stagger">
-
-            <div class="pillar">
-              <div class="pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 44 12" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="3" y1="6" x2="41" y2="6" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="13" cy="6" r="2.5" fill="none" stroke="#C9A227" stroke-width="1.2"/>
-                  <circle cx="20" cy="6" r="2.5" fill="none" stroke="#C9A227" stroke-width="1.2"/>
-                  <circle cx="27" cy="6" r="2.5" fill="none" stroke="#C9A227" stroke-width="1.2"/>
-                  <circle cx="34" cy="6" r="2.5" fill="none" stroke="#C9A227" stroke-width="1.2"/>
-                </svg>
-              </div>
-              <h4>Exquisite Cuisine</h4>
-              <p>Farm to flame, fresh &amp; seasonal</p>
-            </div>
-
-            <div class="pillar">
-              <div class="pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 5 L22 15 L32 15 L24 21 L27 31 L20 25 L13 31 L16 21 L8 15 L18 15 Z"
-                        fill="none" stroke="#C9A227" stroke-width="1.3" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <h4>Thoughtful Details</h4>
-              <p>Every element curated with care</p>
-            </div>
-
-            <div class="pillar">
-              <div class="pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 15 Q 10 7 15 15 Q 20 23 25 15 Q 30 7 35 15"
-                        fill="none" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M5 25 Q 10 17 15 25 Q 20 33 25 25 Q 30 17 35 25"
-                        fill="none" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h4>Timeless Experiences</h4>
-              <p>In harmony with your season</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Indian instrument divider — Tabla -->
-  <div class="instrument-divider instrument-divider--light" aria-hidden="true">
-    <div class="instrument-divider-inner">
-      <div class="instrument-line"></div>
-      <svg class="instrument-icon" width="72" height="36" viewBox="0 0 72 36" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="18" r="16" fill="none" stroke="#0A2B1E" stroke-width="1.1" opacity="0.45"/>
-        <circle cx="18" cy="18" r="11" fill="none" stroke="#C9A227" stroke-width="1"   opacity="0.65"/>
-        <circle cx="18" cy="18" r="5"  fill="none" stroke="#0A2B1E" stroke-width="1"   opacity="0.5"/>
-        <circle cx="53" cy="18" r="13" fill="none" stroke="#0A2B1E" stroke-width="1.1" opacity="0.45"/>
-        <circle cx="53" cy="18" r="8"  fill="none" stroke="#C9A227" stroke-width="1"   opacity="0.65"/>
-        <circle cx="53" cy="18" r="4"  fill="none" stroke="#0A2B1E" stroke-width="1"   opacity="0.5"/>
-      </svg>
-      <div class="instrument-line"></div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════
-       THE NAME — TAAL MEANING
-  ════════════════════════════════════════════════ -->
-  <section id="taal-meaning" class="taal-meaning-section">
-    <div class="container">
-      <div class="taal-meaning-inner">
-        <div class="taal-meaning-deco reveal-fade" aria-hidden="true">
-          <svg class="tabla-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="60" cy="60" r="54" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.3"/>
-            <circle cx="60" cy="60" r="42" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
-            <circle cx="60" cy="60" r="30" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.55"/>
-            <circle cx="60" cy="60" r="16" fill="none" stroke="#C9A227" stroke-width="2" opacity="0.7"/>
-            <circle cx="60" cy="60" r="5" fill="#C9A227" opacity="0.6"/>
-            <line x1="60" y1="6" x2="60" y2="18" stroke="#C9A227" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
-            <line x1="60" y1="102" x2="60" y2="114" stroke="#C9A227" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
-            <line x1="6" y1="60" x2="18" y2="60" stroke="#C9A227" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
-            <line x1="102" y1="60" x2="114" y2="60" stroke="#C9A227" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
-            <line x1="22" y1="22" x2="30" y2="30" stroke="#C9A227" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-            <line x1="90" y1="90" x2="98" y2="98" stroke="#C9A227" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-            <line x1="98" y1="22" x2="90" y2="30" stroke="#C9A227" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-            <line x1="30" y1="90" x2="22" y2="98" stroke="#C9A227" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="taal-meaning-content reveal-right">
-          <p class="section-label light">The Name</p>
-          <h2 class="taal-meaning-title">ताल &nbsp;<em>Taal</em></h2>
-          <p class="taal-meaning-text">In the language of Indian classical music, <em>taal</em> is the rhythmic cycle — the pulse that underlies every raga, every composition, every moment of silence between notes. It is structure and freedom at once; ancient and alive.</p>
-          <p class="taal-meaning-text">At our table, every dish is composed like music — layered, intentional, deeply felt. The spice follows a pattern. The silence between courses is deliberate. You are not just dining; you are listening.</p>
-          <div class="taal-meaning-divider" aria-hidden="true">
-            <span class="divider-line"></span>
-            <span class="divider-diamond">◆</span>
-            <span class="divider-line"></span>
-          </div>
-          <p class="taal-meaning-footnote"><em>taal</em> · ताल · noun · Hindi · the rhythmic cycle in Indian classical music</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Indian instrument divider — Sitar -->
-  <div class="instrument-divider instrument-divider--dark" aria-hidden="true">
-    <div class="instrument-divider-inner">
-      <div class="instrument-line"></div>
-      <svg class="instrument-icon" width="100" height="32" viewBox="0 0 104 32" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="92" cy="16" r="10" fill="none" stroke="#C9A227" stroke-width="1.2" opacity="0.7"/>
-        <circle cx="92" cy="16" r="6"  fill="none" stroke="#C9A227" stroke-width="0.7" opacity="0.4"/>
-        <line x1="18" y1="16" x2="82" y2="16" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
-        <line x1="30" y1="12" x2="30" y2="20" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="44" y1="12" x2="44" y2="20" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="57" y1="12" x2="57" y2="20" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="69" y1="12" x2="69" y2="20" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="18" y1="13" x2="82" y2="13" stroke="#C9A227" stroke-width="0.4" opacity="0.38"/>
-        <line x1="18" y1="19" x2="82" y2="19" stroke="#C9A227" stroke-width="0.4" opacity="0.38"/>
-        <line x1="18" y1="16" x2="12" y2="9"  stroke="#C9A227" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-        <circle cx="11" cy="8"  r="2.2" fill="#C9A227" opacity="0.7"/>
-        <line x1="18" y1="16" x2="12" y2="23" stroke="#C9A227" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-        <circle cx="11" cy="24" r="2.2" fill="#C9A227" opacity="0.7"/>
-        <line x1="18" y1="16" x2="8"  y2="16" stroke="#C9A227" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-        <circle cx="7"  cy="16" r="2.2" fill="#C9A227" opacity="0.7"/>
-      </svg>
-      <div class="instrument-line"></div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════
-       MENU
-  ════════════════════════════════════════════════ -->
-  <section id="menu" class="menu-section">
-
-    <!-- Header + Tabs -->
-    <div class="menu-header">
-      <div class="container">
-        <p class="section-label">Curated Offerings</p>
-        <h2 class="section-title light">The <em>Menu</em></h2>
-        <p class="section-sub light">A composition of flavours — each dish a note, each course a movement</p>
-
-        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
-          <button class="menu-tab active" data-tab="small-plates" data-bg="spice" role="tab" aria-selected="true"  aria-controls="tab-small-plates">Small Plates</button>
-          <button class="menu-tab" data-tab="mains" data-bg="curry"        role="tab" aria-selected="false" aria-controls="tab-mains">Mains</button>
-          <button class="menu-tab" data-tab="biryanis" data-bg="biryani"     role="tab" aria-selected="false" aria-controls="tab-biryanis">Biryanis</button>
-          <button class="menu-tab" data-tab="sides-breads" data-bg="bread" role="tab" aria-selected="false" aria-controls="tab-sides-breads">Sides &amp; Breads</button>
-          <button class="menu-tab" data-tab="desserts" data-bg="dessert"     role="tab" aria-selected="false" aria-controls="tab-desserts">Desserts</button>
-          <button class="menu-tab" data-tab="beverages" data-bg="chai"    role="tab" aria-selected="false" aria-controls="tab-beverages">Beverages</button>
-          <button class="menu-tab" data-tab="beer-wine" data-bg="wine"    role="tab" aria-selected="false" aria-controls="tab-beer-wine">Beer &amp; Wine</button>
-          <button class="menu-tab" data-tab="cocktails" data-bg="cocktail"    role="tab" aria-selected="false" aria-controls="tab-cocktails">Cocktails</button>
-          <button class="menu-tab" data-tab="lunch" data-bg="lunch"        role="tab" aria-selected="false" aria-controls="tab-lunch">Lunch</button>
-          <button class="menu-tab" data-tab="dinner" data-bg="dinner"       role="tab" aria-selected="false" aria-controls="tab-dinner">Dinner</button>
-        </div>
-
-        <div class="menu-filters" role="group" aria-label="Dietary filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="vegetarian">
-            <span class="filter-dot veg" aria-hidden="true"></span> Vegetarian
-          </button>
-          <button class="filter-btn" data-filter="vegan">
-            <span class="filter-dot vegan" aria-hidden="true"></span> Vegan
-          </button>
-          <button class="filter-btn" data-filter="gf">
-            <span class="filter-dot gf" aria-hidden="true"></span> Gluten-Free
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Menu Panels -->
-    <div class="container">
-      <div class="menu-content">
-
-        <!-- â”€â”€ DINNER â”€â”€ -->
-        <div class="menu-panel" id="tab-dinner" role="tabpanel" aria-labelledby="tab-dinner">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Chef's Specials</h3>
-            <p class="menu-cat-sub"><em>Compositions that change with the season</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-dinner -->
-
-
-        <!-- â”€â”€ LUNCH â”€â”€ -->
-        <div class="menu-panel" id="tab-lunch" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Lunch Specials</h3>
-            <p class="menu-cat-sub"><em>Available Wednesday – Sunday, 11:30 AM – 2:30 PM</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-lunch -->
-
-
-        <!-- â”€â”€ SMALL PLATES â”€â”€ -->
-        <div class="menu-panel active" id="tab-small-plates" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Small Plates</h3>
-            <p class="menu-cat-sub"><em>In harmony with the season</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-small-plates -->
-
-
-        <!-- â”€â”€ MAINS â”€â”€ -->
-        <div class="menu-panel" id="tab-mains" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Mains</h3>
-            <p class="menu-cat-sub"><em>The heart of the composition</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-mains -->
-
-
-        <!-- â”€â”€ SIDES & BREADS â”€â”€ -->
-        <div class="menu-panel" id="tab-sides-breads" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Sides &amp; Breads</h3>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-sides-breads -->
-
-
-        <!-- â”€â”€ BIRYANIS â”€â”€ -->
-        <div class="menu-panel" id="tab-biryanis" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Dum Biryanis</h3>
-            <p class="menu-cat-sub"><em>Slow-cooked, sealed, and served with ceremony</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Accompaniments</h3>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-biryanis -->
-
-
-        <!-- â”€â”€ COCKTAILS â”€â”€ -->
-        <div class="menu-panel" id="tab-cocktails" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Signature Cocktails</h3>
-            <p class="menu-cat-sub"><em>Notes of India in every pour</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Lassi Bar</h3>
-            <p class="menu-cat-sub"><em>Classic with a contemporary note</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-cocktails -->
-
-
-        <!-- â”€â”€ BEVERAGES (NON-ALCOHOLIC) â”€â”€ -->
-        <div class="menu-panel" id="tab-beverages" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Indian Teas &amp; Coffees</h3>
-            <p class="menu-cat-sub"><em>Brewed with intention</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Fresh Pressed &amp; Coolers</h3>
-            <p class="menu-cat-sub"><em>Notes of the subcontinent</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Lassi Bar</h3>
-            <p class="menu-cat-sub"><em>Classic with a contemporary note</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Still &amp; Sparkling</h3>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-beverages -->
-
-
-        <!-- â”€â”€ BEER & WINE â”€â”€ -->
-        <div class="menu-panel" id="tab-beer-wine" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Wine</h3>
-            <p class="menu-cat-sub"><em>In harmony with spice</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Beer</h3>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-beer-wine -->
-
-
-        <!-- â”€â”€ DESSERTS â”€â”€ -->
-        <div class="menu-panel" id="tab-desserts" role="tabpanel">
-
-          <div class="menu-category">
-            <h3 class="menu-cat-title">Sweet Notes</h3>
-            <p class="menu-cat-sub"><em>The final movement</em></p>
-            <div class="menu-items">
-              <!-- Menu items placeholder — add items here -->
-            </div>
-          </div>
-
-        </div><!-- /tab-desserts -->
-
-      </div><!-- /menu-content -->
-
-      <div class="menu-note">
-        <p>Menus change seasonally. Ask your server about today's chef's specials.</p>
-        <p class="menu-dietary-key">
-          <span class="badge veg-badge">🌿</span> Vegetarian &nbsp;
-          <span class="badge vegan-badge">V</span> Vegan &nbsp;
-          <span class="badge gf-badge">GF</span> Gluten-Free &nbsp;
-          <svg class="flame-icon" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-label="Flame" style="display:inline;vertical-align:middle"><path d="M5 16C2 14 0 11 0 8 0 5.5 1.5 3 3 2 3 4 4 5.5 5 6 5 3 6.5.5 8 0 8 2 9 3.5 10 6 10.5 8 10 11 8 13 7 14 6 15 5 16Z" fill="#E8523A" opacity="0.85"/></svg> Spice Level
-        </p>
-      </div>
-
-    </div><!-- /container -->
-  </section><!-- /menu -->
-
-
-
-  <!-- ════════════════════════════════════════════════
-       EVENTS / CORPORATE
-  ════════════════════════════════════════════════ -->
-  <section id="events" class="events-section">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:4rem">
-        <p class="section-label" style="color:var(--gold-light)">Private &amp; Corporate</p>
-        <h2 class="section-title light">Experiences <em>Beyond the Table</em></h2>
-      </div>
-      <div class="events-grid">
-
-        <div class="event-card reveal-up" id="corporate">
-          <div class="event-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="22" width="30" height="20" rx="1" fill="none" stroke="#C9A227" stroke-width="1.5"/>
-              <line x1="10" y1="30" x2="40" y2="30" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
-              <line x1="25" y1="22" x2="25" y2="14" stroke="#C9A227" stroke-width="1.5"/>
-              <circle cx="25" cy="12" r="3" fill="none" stroke="#C9A227" stroke-width="1.3"/>
-              <line x1="16" y1="35" x2="16" y2="42" stroke="#C9A227" stroke-width="1"/>
-              <line x1="25" y1="35" x2="25" y2="42" stroke="#C9A227" stroke-width="1"/>
-              <line x1="34" y1="35" x2="34" y2="42" stroke="#C9A227" stroke-width="1"/>
-            </svg>
-          </div>
-          <h3>Corporate Dining</h3>
-          <p class="event-sub"><em>20 minutes from Research Triangle Park</em></p>
-          <p>Elevate your client dinner or team lunch at TAAL. Dedicated corporate packages with pre-set menus, private dining rooms, and seamless white-glove service for groups of 8–40.</p>
-          <ul class="event-features">
-            <li>Private dining rooms with AV available</li>
-            <li>Customised pre-set menus</li>
-            <li>Dietary accommodations guaranteed</li>
-            <li>Convenient Franklin St. parking</li>
-          </ul>
-          <button class="event-form-toggle btn-outline" aria-expanded="false" data-target="form-corporate">Enquire Now</button>
-          <div class="event-inline-form" id="form-corporate" hidden>
-            <form class="event-form" onsubmit="handleEventForm(event)">
-              <input type="text" class="form-input" placeholder="Your Name" required>
-              <input type="email" class="form-input" placeholder="Email Address" required>
-              <input type="text" class="form-input" placeholder="Company Name">
-              <select class="form-input"><option value="">Number of Guests</option><option>8–12</option><option>13–20</option><option>21–40</option></select>
-              <button type="submit" class="btn-primary full-width">Send Enquiry</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="event-card reveal-up" id="private-events">
-          <div class="event-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-              <path d="M25 8 L28 19 L40 19 L30 26 L34 37 L25 30 L16 37 L20 26 L10 19 L22 19 Z"
-                    fill="none" stroke="#C9A227" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Private Events</h3>
-          <p class="event-sub"><em>Weddings, birthdays, celebrations</em></p>
-          <p>From intimate milestone dinners to festive celebrations, TAAL composes an evening uniquely yours. Let our team craft every detail — from the first pour to the last note.</p>
-          <ul class="event-features">
-            <li>Full venue buyout available</li>
-            <li>Custom dÃ©cor &amp; floral arrangements</li>
-            <li>Live music coordination</li>
-            <li>Bespoke tasting menus</li>
-          </ul>
-          <button class="event-form-toggle btn-outline" aria-expanded="false" data-target="form-private">Plan Your Event</button>
-          <div class="event-inline-form" id="form-private" hidden>
-            <form class="event-form" onsubmit="handleEventForm(event)">
-              <input type="text" class="form-input" placeholder="Your Name" required>
-              <input type="email" class="form-input" placeholder="Email Address" required>
-              <select class="form-input"><option value="">Event Type</option><option>Birthday</option><option>Anniversary</option><option>Wedding</option><option>Graduation</option><option>Other</option></select>
-              <select class="form-input"><option value="">Approximate Guest Count</option><option>Up to 20</option><option>21–50</option><option>51–100</option><option>100+</option></select>
-              <button type="submit" class="btn-primary full-width">Send Enquiry</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="event-card reveal-up" id="catering">
-          <div class="event-card-icon" aria-hidden="true">
-            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="25" cy="25" r="16" fill="none" stroke="#C9A227" stroke-width="1.5"/>
-              <circle cx="25" cy="25" r="9"  fill="none" stroke="#C9A227" stroke-width="1"/>
-              <line x1="25" y1="9"  x2="25" y2="6"  stroke="#C9A227" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="25" y1="44" x2="25" y2="41" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="9"  y1="25" x2="6"  y2="25" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="44" y1="25" x2="41" y2="25" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Catering</h3>
-          <p class="event-sub"><em>The TAAL experience, anywhere in the Triangle</em></p>
-          <p>Bring the rhythm of TAAL to your corporate office, campus event, or home celebration. Full-service catering for 20–500 guests throughout Chapel Hill, Durham, and the RTP.</p>
-          <ul class="event-features">
-            <li>Full-service setup and staffing</li>
-            <li>Live chaat and tandoor stations</li>
-            <li>UNC, Duke &amp; NC State experience</li>
-            <li>Dietary accommodations guaranteed</li>
-          </ul>
-          <button class="event-form-toggle btn-outline" aria-expanded="false" data-target="form-catering">Get a Quote</button>
-          <div class="event-inline-form" id="form-catering" hidden>
-            <form class="event-form" onsubmit="handleEventForm(event)">
-              <input type="text" class="form-input" placeholder="Your Name" required>
-              <input type="email" class="form-input" placeholder="Email Address" required>
-              <input type="date" class="form-input" aria-label="Event Date">
-              <select class="form-input"><option value="">Number of Guests</option><option>20–50</option><option>51–100</option><option>101–250</option><option>251–500</option></select>
-              <button type="submit" class="btn-primary full-width">Request Quote</button>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Indian instrument divider — Bansuri -->
-  <div class="instrument-divider instrument-divider--mid" aria-hidden="true">
-    <div class="instrument-divider-inner">
-      <div class="instrument-line"></div>
-      <svg class="instrument-icon" width="120" height="22" viewBox="0 0 120 22" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="8" width="112" height="6" rx="3" fill="none" stroke="#C9A227" stroke-width="1.1" opacity="0.7"/>
-        <ellipse cx="18" cy="11" rx="3.5" ry="2.2" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.85"/>
-        <circle cx="38"  cy="11" r="2.2" fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.7"/>
-        <circle cx="52"  cy="11" r="2.2" fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.7"/>
-        <circle cx="66"  cy="11" r="2.2" fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.7"/>
-        <circle cx="80"  cy="11" r="2.2" fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.7"/>
-        <circle cx="94"  cy="11" r="2.2" fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.7"/>
-        <circle cx="108" cy="11" r="2.2" fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.7"/>
-      </svg>
-      <div class="instrument-line"></div>
-    </div>
-  </div>
-
-  <section id="gallery" class="gallery-section">
-    <div class="container">
-      <p class="section-label">Visual Rhythm</p>
-      <h2 class="section-title">The <em>Experience</em></h2>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item gallery-item-wide reveal-up">
-        <div class="gallery-placeholder"><span>Restaurant Atmosphere</span></div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <div class="gallery-placeholder"><span>Signature Dish</span></div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <div class="gallery-placeholder"><span>Bar Experience</span></div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <div class="gallery-placeholder"><span>Private Dining</span></div>
-      </div>
-      <div class="gallery-item gallery-item-wide reveal-up">
-        <div class="gallery-placeholder"><span>The Kitchen</span></div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <div class="gallery-placeholder"><span>Cocktail Craft</span></div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Indian instrument divider — Veena -->
-  <div class="instrument-divider instrument-divider--light" aria-hidden="true">
-    <div class="instrument-divider-inner">
-      <div class="instrument-line"></div>
-      <svg class="instrument-icon" width="100" height="36" viewBox="0 0 100 36" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="82" cy="18" r="14" fill="none" stroke="#0A2B1E" stroke-width="1.1" opacity="0.45"/>
-        <circle cx="82" cy="18" r="9"  fill="none" stroke="#C9A227" stroke-width="0.9" opacity="0.6"/>
-        <line x1="22" y1="18" x2="68" y2="18" stroke="#0A2B1E" stroke-width="2" opacity="0.5"/>
-        <ellipse cx="14" cy="11" rx="10" ry="7" fill="none" stroke="#0A2B1E" stroke-width="1" opacity="0.4"/>
-        <ellipse cx="14" cy="11" rx="6"  ry="4" fill="none" stroke="#C9A227" stroke-width="0.7" opacity="0.5"/>
-        <line x1="32" y1="14" x2="32" y2="22" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="45" y1="14" x2="45" y2="22" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="57" y1="14" x2="57" y2="22" stroke="#C9A227" stroke-width="0.9" opacity="0.55"/>
-        <line x1="22" y1="16" x2="68" y2="16" stroke="#C9A227" stroke-width="0.45" opacity="0.4"/>
-        <line x1="22" y1="20" x2="68" y2="20" stroke="#C9A227" stroke-width="0.45" opacity="0.4"/>
-      </svg>
-      <div class="instrument-line"></div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════
-       RESERVATIONS
-  ════════════════════════════════════════════════ -->
-  <section id="reservations" class="reservations-section">
-    <div class="container">
-      <div class="reservations-inner">
-
-        <div class="reveal-left">
-          <p class="section-label" style="color:var(--gold-light)">Join Us</p>
-          <h2 class="section-title light">Reserve <em>Your Table</em></h2>
-          <p class="reservations-text light">Secure your seat at Chapel Hill's most anticipated Indian dining experience. Reservations are recommended, especially on weekends.</p>
-
-          <div class="reservations-info">
-            <div class="res-info-item">
-              <span class="res-info-label">Dinner</span>
-              <span class="res-info-val">Tuesday – Sunday, 5:00 – 10:00 PM</span>
-            </div>
-            <div class="res-info-item">
-              <span class="res-info-label">Lunch</span>
-              <span class="res-info-val">Wednesday – Sunday, 11:30 AM – 2:30 PM</span>
-            </div>
-            <div class="res-info-item">
-              <span class="res-info-label">Bar</span>
-              <span class="res-info-val">Open until midnight, Thu – Sat</span>
-            </div>
-          </div>
-
-          <p class="reservations-walk-in">Walk-ins welcome based on availability.</p>
-        </div>
-
-        <div class="reveal-right">
-          <div class="widget-wrap">
-            <div class="widget-header">
-              <h3>Make a Reservation</h3>
-            </div>
-            <div class="widget-body">
-              <!--
-                INTEGRATION NOTE:
-                Replace this form with your Resy or OpenTable embed script.
-                Resy:      <script type="text/javascript" src="..."></script>
-                OpenTable: <div id="ot-reservation-widget" ...></div>
-              -->
-              <form class="reservation-form" onsubmit="return false;" aria-label="Reservation request">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="res-date">Date</label>
-                    <input type="date" id="res-date" class="form-input" aria-required="true">
-                  </div>
-                  <div class="form-group">
-                    <label for="res-time">Time</label>
-                    <select id="res-time" class="form-input">
-                      <option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option>
-                      <option>6:30 PM</option><option>7:00 PM</option><option>7:30 PM</option>
-                      <option>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="res-party">Party Size</label>
-                  <select id="res-party" class="form-input">
-                    <option>1 Guest</option><option>2 Guests</option><option>3 Guests</option>
-                    <option>4 Guests</option><option>5 Guests</option><option>6 Guests</option>
-                    <option>7+ Guests (large party)</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="res-occasion">Occasion</label>
-                  <select id="res-occasion" class="form-input">
-                    <option value="">No special occasion</option>
-                    <option>Birthday</option>
-                    <option>Anniversary</option>
-                    <option>Business Dinner</option>
-                    <option>Date Night</option>
-                    <option>Proposal</option>
-                    <option>Graduation</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="res-name">Name</label>
-                  <input type="text" id="res-name" class="form-input" placeholder="Your name" aria-required="true">
-                </div>
-                <div class="form-group">
-                  <label for="res-email">Email</label>
-                  <input type="email" id="res-email" class="form-input" placeholder="your@email.com" aria-required="true">
-                </div>
-                <div class="form-group">
-                  <label for="res-notes">Special Requests</label>
-                  <textarea id="res-notes" class="form-input form-textarea" placeholder="Allergies, celebrations, accessibility needs…"></textarea>
-                </div>
-                <button type="submit" class="btn-primary full-width">Request Reservation</button>
-                <p class="form-note">Confirmation emailed within 2 hours. For large parties, call ahead.</p>
-              </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════
-       CONTACT
-  ════════════════════════════════════════════════ -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="contact-grid">
-
-        <div class="reveal-up">
-          <p class="section-label">Find Us</p>
-          <h2 class="section-title">Contact <em>&amp; Visit</em></h2>
-
-          <div class="contact-details">
-            <div class="contact-detail">
-              <span class="contact-detail-icon" aria-hidden="true">📍</span>
-              <div>
-                <p class="contact-detail-label">Address</p>
-                <p>310 W Franklin St<br>Chapel Hill, NC 27516</p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <span class="contact-detail-icon" aria-hidden="true">📸</span>
-              <div>
-                <p class="contact-detail-label">Instagram</p>
-                <a href="https://instagram.com/taal.dining" target="_blank" rel="noopener noreferrer" class="contact-link">@taal.dining</a>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <span class="contact-detail-icon" aria-hidden="true">🌐</span>
-              <div>
-                <p class="contact-detail-label">Website</p>
-                <p>taaldining.com</p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <span class="contact-detail-icon" aria-hidden="true">✉️</span>
-              <div>
-                <p class="contact-detail-label">Events &amp; Catering</p>
-                <a href="mailto:events@taaldining.com" class="contact-link">events@taaldining.com</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-hours">
-            <h4>Hours</h4>
-            <div class="hours-grid">
-              <span>Monday</span>        <span>Closed</span>
-              <span>Tuesday</span>       <span>Dinner 5–10 PM</span>
-              <span>Wed – Fri</span>     <span>Lunch &amp; Dinner</span>
-              <span>Sat – Sun</span>     <span>Brunch, Lunch &amp; Dinner</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal-up">
-          <div class="map-embed-wrap">
-            <iframe
-              src="https://maps.google.com/maps?q=310+W+Franklin+St+Chapel+Hill+NC+27516&output=embed"
-              width="100%" height="300" style="border:0;border-radius:4px;display:block;"
-              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              title="TAAL Indian Kitchen &amp; Bar — 310 W Franklin St, Chapel Hill NC"></iframe>
-            <a href="https://maps.google.com/?q=310+W+Franklin+St+Chapel+Hill+NC+27516"
-               target="_blank" rel="noopener noreferrer" class="btn-outline-dark">Get Directions</a>
-          </div>
-
-          <div class="contact-form-wrap">
-            <h3>Send a Message</h3>
-            <form class="contact-form" onsubmit="handleContactForm(event)" aria-label="Contact form">
-              <div class="form-group">
-                <input type="text" class="form-input" placeholder="Your Name" required aria-required="true">
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-input" placeholder="Email Address" required aria-required="true">
-              </div>
-              <div class="form-group">
-                <select class="form-input" aria-label="Subject">
-                  <option value="">Subject</option>
-                  <option>General Enquiry</option>
-                  <option>Private Events</option>
-                  <option>Corporate Dining</option>
-                  <option>Catering</option>
-                  <option>Press &amp; Media</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <textarea class="form-input form-textarea" placeholder="Your message…" required aria-required="true"></textarea>
-              </div>
-              <button type="submit" class="btn-primary">Send Message</button>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- ════════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-grid">
-
-          <div class="footer-brand">
-            <img src="Branding/PHOTO-2026-06-15-16-35-54_3.jpg"
-                 alt="TAAL Indian Kitchen &amp; Bar"
-                 class="footer-logo"
-                 width="120" loading="lazy">
-            <p class="footer-tagline"><em>The Rhythm of Indian Dining</em></p>
-            <p class="footer-sub">310 W Franklin St, Chapel Hill, NC 27516</p>
-            <div class="footer-social">
-              <a href="https://instagram.com/taal.dining" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow TAAL on Instagram">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-                </svg>
-                @taal.dining
-              </a>
-            </div>
-          </div>
-
-          <div class="footer-links">
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#events">Events &amp; Catering</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#reservations">Reservations</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-links">
-            <h4>Menu</h4>
-            <ul>
-              <li><a href="#menu">Dinner</a></li>
-              <li><a href="#menu">Lunch</a></li>
-              <li><a href="#menu">Cocktails</a></li>
-              <li><a href="#menu">Beer &amp; Wine</a></li>
-              <li><a href="#menu">Desserts</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-newsletter">
-            <h4>Stay in Rhythm</h4>
-            <p>Be the first to hear about seasonal menus, events, and special evenings at TAAL.</p>
-            <!-- Replace XXXX values with your Mailchimp list ID and user ID -->
-            <form action="https://taaldining.us1.list-manage.com/subscribe/post?u=XXXX&amp;id=XXXX" method="post" class="newsletter-form" target="_blank" novalidate aria-label="Newsletter signup">
-              <input type="email" name="EMAIL" class="newsletter-input" placeholder="your@email.com" aria-label="Email address for newsletter">
-              <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_XXXX_XXXX" tabindex="-1" value=""></div>
-              <button type="submit" class="newsletter-btn" aria-label="Subscribe">→</button>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="footer-bottom-inner">
-          <p>&copy; 2026 TAAL Indian Kitchen &amp; Bar. All rights reserved.</p>
-          <div class="footer-wave" aria-hidden="true">
-            <svg viewBox="0 0 240 20" xmlns="http://www.w3.org/2000/svg" class="footer-wave-svg">
-              <path d="M0 10 Q 30 2 60 10 Q 90 18 120 10 Q 150 2 180 10 Q 210 18 240 10"
-                    fill="none" stroke="#C9A227" stroke-width="1" opacity="0.35"/>
-            </svg>
-          </div>
-          <p class="footer-links-row">
-            <a href="#">Privacy Policy</a>&nbsp;·&nbsp;<a href="#">Terms</a>&nbsp;·&nbsp;<a href="#">Accessibility</a>
-          </p>
-        </div>
-      </div>
-    </div>
+      @taal.dining
+    </span>
+
+    <div class="footer-sep" aria-hidden="true"></div>
+    <p class="footer-copy">&copy; 2026 TAAL Indian Kitchen &amp; Bar. All rights reserved.</p>
   </footer>
 
-  <!-- Nav tab links — jump to correct menu tab on click (desktop dropdown + mobile sub-links) -->
-  <script>
-    document.querySelectorAll('.dropdown-link[data-tab], .mobile-sub a[data-tab]').forEach(link => {
-      link.addEventListener('click', () => {
-        const tab = link.dataset.tab;
-        const btn = document.querySelector(`.menu-tab[data-tab="${tab}"]`);
-        if (btn) { setTimeout(() => btn.click(), 180); }
-      });
-    });
-  </script>
-
-  <!-- Back to Top -->
-  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-
-  <!-- Sticky Mobile Bottom CTA Bar -->
-  <div class="mobile-cta-bar" id="mobile-cta-bar" aria-label="Quick actions">
-    <a href="#reservations" class="mobile-cta-btn mobile-cta-reserve">Reserve</a>
-    <a href="#menu"         class="mobile-cta-btn mobile-cta-menu">Menu</a>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <span class="lightbox-counter" id="lightboxCounter"></span>
   </div>
 
-  <!-- Live Chat Widget — replace with Tidio or Crisp embed code -->
-  <!-- Example Tidio: <script src="//code.tidio.co/YOUR_KEY.js" async></script> -->
+  <script>
+    (function () {
+      const inner = document.getElementById('carouselInner');
+      const dotsWrap = document.getElementById('carouselDots');
+      const slides = inner.querySelectorAll('.carousel-slide');
+      const total = slides.length;
+      let current = 0;
+      let autoTimer;
 
-  <script src="js/main.js" defer></script>
-  <script src="js/menu.js" defer></script>
+      // Build dots
+      slides.forEach(function (_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Image ' + (i + 1) + ' of ' + total);
+        dot.setAttribute('role', 'tab');
+        dot.addEventListener('click', function () { goTo(i); });
+        dotsWrap.appendChild(dot);
+      });
+
+      function syncDots() {
+        dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(idx) {
+        current = ((idx % total) + total) % total;
+        inner.style.transition = 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)';
+        inner.style.transform = 'translateX(-' + (current * 100) + '%)';
+        syncDots();
+        resetAuto();
+      }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
+      }
+
+      document.getElementById('prevBtn').addEventListener('click', function () { goTo(current - 1); });
+      document.getElementById('nextBtn').addEventListener('click', function () { goTo(current + 1); });
+
+      // Touch swipe
+      var touchStartX = 0;
+      var touchStartY = 0;
+      inner.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      inner.addEventListener('touchend', function (e) {
+        var dx = touchStartX - e.changedTouches[0].clientX;
+        var dy = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          goTo(current + (dx > 0 ? 1 : -1));
+        }
+      }, { passive: true });
+
+      // Pause on hover
+      inner.closest('.carousel-section').addEventListener('mouseenter', function () { clearInterval(autoTimer); });
+      inner.closest('.carousel-section').addEventListener('mouseleave', function () { resetAuto(); });
+
+      // Lightbox
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxCounter = document.getElementById('lightboxCounter');
+      var lightboxIndex = 0;
+      var imgSrcs = Array.from(slides).map(function (s) { return s.querySelector('img'); });
+
+      function openLightbox(idx) {
+        lightboxIndex = ((idx % total) + total) % total;
+        var img = imgSrcs[lightboxIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCounter.textContent = (lightboxIndex + 1) + ' / ' + total;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      slides.forEach(function (slide, i) {
+        slide.addEventListener('click', function () { openLightbox(i); });
+      });
+
+      document.getElementById('lightboxPrev').addEventListener('click', function (e) {
+        e.stopPropagation();
+        openLightbox(lightboxIndex - 1);
+      });
+      document.getElementById('lightboxNext').addEventListener('click', function (e) {
+        e.stopPropagation();
+        openLightbox(lightboxIndex + 1);
+      });
+      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
+        if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
+      });
+
+      resetAuto();
+    })();
+  </script>
+
 </body>
 </html>

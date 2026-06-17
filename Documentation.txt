@@ -1,6 +1,6 @@
 ﻿TAAL INDIAN KITCHEN & BAR — Website Documentation
 ===================================================
-Last updated: 2026-06-16
+Last updated: 2026-06-17
 
 FILE STRUCTURE
 --------------
@@ -188,6 +188,72 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-17: Coming Soon page built from scratch (Build.md).
+            Full website stripped down to a single-page Coming Soon layout. index.html rewritten
+            entirely. css/styles.css, css/animations.css, js/main.js, js/menu.js are no longer
+            referenced by index.html (kept in folder but unused). All complex navigation, menu,
+            events, reservations, contact, and footer sections removed.
+
+            FEATURES IMPLEMENTED:
+
+            HEADER — Restaurant name & Coming Soon heading:
+              - TAAL logo image (Branding/white taal logo no bg.png) with mix-blend-mode: multiply
+                so it floats cleanly on the parchment gradient background.
+              - "TAAL" wordmark in Cinzel 700 with wide letter-spacing.
+              - "Indian Kitchen & Bar" subtitle in Montserrat, uppercase.
+              - Gold diamond divider separating name from heading.
+              - "Coming Soon" heading in Cormorant Garamond italic, cognac color.
+              - Tagline: "The Rhythm of Indian Dining".
+              - Location pill with pin SVG icon: "310 W Franklin St · Chapel Hill, NC".
+              - Background: same parchment gradient (#D4BA8A → #EAD9C4 → #F2E8D8) as original site.
+              - Decorative gold SVG wave lines in background.
+
+            FLYER — Coming soon announcement image:
+              - Displays Branding/PHOTO-2026-06-15-16-35-54_2.jpg (the coming-soon flyer).
+              - Centered, max-width 580px, with border and drop shadow.
+              - "Opening Announcement" section label above the flyer.
+
+            IMAGE CAROUSEL — All branding + interior images:
+              - Auto-advances every 4.5 seconds.
+              - 10 slides total:
+                  Branding/PHOTO-2026-06-15-16-35-54.jpg
+                  Branding/PHOTO-2026-06-15-16-35-54_1.jpg
+                  Branding/PHOTO-2026-06-15-16-35-54_2.jpg
+                  Branding/PHOTO-2026-06-15-16-35-54_3.jpg
+                  Branding/PHOTO-2026-06-15-16-35-54_4.jpg
+                  Interior/PHOTO-2026-06-16-17-39-39.jpg
+                  Interior/PHOTO-2026-06-16-17-39-40.jpg
+                  Interior/PHOTO-2026-06-16-17-39-40 (1).jpg
+                  Interior/PHOTO-2026-06-16-17-39-40 (2).jpg
+                  Interior/PHOTO-2026-06-16-17-39-40 (3).jpg
+              - Prev/Next arrow buttons (gold circles) on each side.
+              - Dot indicator row (10 dots); active dot is gold and 1.5x scale.
+              - Touch swipe support: horizontal swipe > 50px with directional ratio check triggers
+                slide advance/retreat.
+              - Hover pauses auto-advance; mouseleave resumes it.
+              - CSS transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94).
+              - Dark green (--green-dark) background matching brand.
+
+            FOOTER — Minimal brand footer:
+              - Restaurant name in Cinzel.
+              - Tagline "The Rhythm of Indian Dining" in italic.
+              - Address: 310 W Franklin St, Chapel Hill, NC 27516.
+              - Instagram link (@taal.dining).
+              - Gold SVG wave motif.
+              - Copyright line.
+
+            COLOR SCHEME PRESERVED:
+              All CSS variables carried over from the original site:
+              --green-dark, --green-mid, --green-light, --cognac, --gold, --gold-light,
+              --gold-pale, --cream, --cream-dark, --off-white, --dark, --muted.
+              Fonts: Cinzel, Cormorant Garamond, Montserrat (subset of original font set).
+
+            RESPONSIVE:
+              - Fluid logo and heading sizes with clamp().
+              - Carousel arrow buttons shrink on mobile.
+              - Padding reduced on mobile (≤640px).
+
+
 2026-06-16n: Hero logo swapped from green-background JPEG to transparent PNG.
             Old: Branding/PHOTO-2026-06-15-16-35-54.jpg (dark green square bg, used with mix-blend-mode: screen)
             New: Branding/white taal logo no bg.png (circular logo, white bg outside transparent, colored design elements)
