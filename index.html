@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -112,7 +112,7 @@
     .coming-soon {
       font-family: var(--font-heading);
       font-size: clamp(2.2rem, 5.5vw, 4rem);
-      font-weight: 300;
+      font-weight: 700;
       font-style: italic;
       color: var(--cognac);
       letter-spacing: 0.04em;
@@ -137,20 +137,9 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--green-dark);
-      border: 1px solid rgba(30,36,22,0.2);
+      border: 2px solid rgba(30,36,22,0.55);
       padding: 0.5rem 1.25rem;
       margin-top: 0.25rem;
-    }
-
-    /* ── FLYER ── */
-    .flyer-section {
-      width: 100%;
-      max-width: 720px;
-      padding: 4rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
     }
 
     .section-label {
@@ -160,13 +149,6 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--cognac);
-    }
-
-    .flyer-img {
-      width: 100%;
-      max-width: 580px;
-      border: 1px solid var(--cream-dark);
-      box-shadow: 0 12px 48px rgba(30,36,22,0.14);
     }
 
     /* ── CAROUSEL ── */
@@ -182,6 +164,9 @@
       text-align: center;
       display: block;
       margin-bottom: 2rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
     }
 
     .carousel-wrap {
@@ -202,18 +187,20 @@
 
     .carousel-slide {
       flex: 0 0 100%;
-      aspect-ratio: 4/3;
+      height: clamp(340px, 55vw, 560px);
       overflow: hidden;
+      background: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .carousel-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform 0.6s ease;
     }
-
-    .carousel-slide:hover img { transform: scale(1.03); }
 
     .carousel-btn {
       position: absolute;
@@ -286,7 +273,8 @@
       font-family: var(--font-heading);
       font-size: 0.95rem;
       font-style: italic;
-      color: rgba(232,208,144,0.55);
+      font-weight: 700;
+      color: rgba(232,208,144,0.9);
       margin-bottom: 0.75rem;
     }
 
@@ -294,7 +282,7 @@
       font-family: var(--font-ui);
       font-size: 0.72rem;
       letter-spacing: 0.1em;
-      color: rgba(232,208,144,0.3);
+      color: rgba(232,208,144,0.75);
       margin-bottom: 1.25rem;
     }
 
@@ -316,7 +304,7 @@
       font-family: var(--font-ui);
       font-size: 0.72rem;
       letter-spacing: 0.1em;
-      color: rgba(232,208,144,0.4);
+      color: rgba(232,208,144,0.75);
     }
 
     .footer-sep {
@@ -332,87 +320,6 @@
       color: rgba(232,208,144,0.2);
     }
 
-    /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: rgba(10, 8, 4, 0.92);
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
-    }
-
-    .lightbox.open { display: flex; }
-
-    .lightbox-img {
-      max-width: 92vw;
-      max-height: 92vh;
-      object-fit: contain;
-      cursor: default;
-      box-shadow: 0 8px 60px rgba(0,0,0,0.6);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: rgba(232,208,144,0.7);
-      font-size: 2rem;
-      line-height: 1;
-      cursor: pointer;
-      transition: color 0.2s ease;
-    }
-
-    .lightbox-close:hover { color: var(--gold); }
-
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(201,162,39,0.15);
-      border: 1px solid rgba(201,162,39,0.35);
-      color: rgba(232,208,144,0.8);
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .lightbox-nav:hover {
-      background: rgba(201,162,39,0.35);
-      color: var(--gold);
-    }
-
-    .lightbox-prev { left: 1.5rem; }
-    .lightbox-next { right: 1.5rem; }
-
-    .lightbox-counter {
-      position: absolute;
-      bottom: 1.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      color: rgba(232,208,144,0.4);
-    }
-
-    .carousel-slide { cursor: zoom-in; }
-
-    @media (max-width: 640px) {
-      .lightbox-nav { width: 40px; height: 40px; }
-      .lightbox-prev { left: 0.5rem; }
-      .lightbox-next { right: 0.5rem; }
-    }
-
     .header-feature-img {
       width: 100%;
       display: block;
@@ -426,7 +333,6 @@
     @media (max-width: 640px) {
       .header { padding: 3rem 0 0; }
       .logo-wrap { padding: 0 1.25rem 2.5rem; }
-      .flyer-section { padding: 2.5rem 1.25rem; }
       .carousel-btn { width: 38px; height: 38px; }
     }
   </style>
@@ -471,16 +377,7 @@
          class="header-feature-img">
   </header>
 
-  <!-- Flyer -->
-  <section class="flyer-section">
-    <p class="section-label">Opening Announcement</p>
-    <img src="Branding/PHOTO-2026-06-15-16-35-54_2.jpg"
-         alt="TAAL Indian Kitchen &amp; Bar — Coming Soon Flyer"
-         class="flyer-img"
-         loading="eager">
-  </section>
-
-  <!-- Image Carousel -->
+  <!-- Image Carousel (includes flyer as first slide) -->
   <section class="carousel-section">
     <span class="section-label">A Glimpse of TAAL</span>
 
@@ -488,9 +385,11 @@
       <div class="carousel-track">
         <div class="carousel-inner" id="carouselInner">
           <div class="carousel-slide">
+            <img src="Branding/PHOTO-2026-06-15-16-35-54_2.jpg" alt="TAAL Indian Kitchen &amp; Bar — Opening Announcement" loading="eager">
+          </div>
+          <div class="carousel-slide">
             <img src="Branding/PHOTO-2026-06-15-16-35-54.jpg" alt="TAAL — Branding" loading="lazy">
           </div>
-
           <div class="carousel-slide">
             <img src="Interior/PHOTO-2026-06-16-17-39-39.jpg" alt="TAAL — Interior" loading="lazy">
           </div>
@@ -538,19 +437,6 @@
     <div class="footer-sep" aria-hidden="true"></div>
     <p class="footer-copy">&copy; 2026 TAAL Indian Kitchen &amp; Bar. All rights reserved.</p>
   </footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full image view">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="">
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-    <span class="lightbox-counter" id="lightboxCounter"></span>
-  </div>
 
   <script>
     (function () {
@@ -611,51 +497,6 @@
       // Pause on hover
       inner.closest('.carousel-section').addEventListener('mouseenter', function () { clearInterval(autoTimer); });
       inner.closest('.carousel-section').addEventListener('mouseleave', function () { resetAuto(); });
-
-      // Lightbox
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImg = document.getElementById('lightboxImg');
-      var lightboxCounter = document.getElementById('lightboxCounter');
-      var lightboxIndex = 0;
-      var imgSrcs = Array.from(slides).map(function (s) { return s.querySelector('img'); });
-
-      function openLightbox(idx) {
-        lightboxIndex = ((idx % total) + total) % total;
-        var img = imgSrcs[lightboxIndex];
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCounter.textContent = (lightboxIndex + 1) + ' / ' + total;
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      slides.forEach(function (slide, i) {
-        slide.addEventListener('click', function () { openLightbox(i); });
-      });
-
-      document.getElementById('lightboxPrev').addEventListener('click', function (e) {
-        e.stopPropagation();
-        openLightbox(lightboxIndex - 1);
-      });
-      document.getElementById('lightboxNext').addEventListener('click', function (e) {
-        e.stopPropagation();
-        openLightbox(lightboxIndex + 1);
-      });
-      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (!lightbox.classList.contains('open')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
-        if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
-      });
 
       resetAuto();
     })();

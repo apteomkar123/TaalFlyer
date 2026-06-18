@@ -188,6 +188,42 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-17b: Six visual polish fixes + carousel restructure (Changes.md):
+
+            BUG FIX 1 — "Coming Soon" made bold and thicker:
+              .coming-soon font-weight changed from 300 to 700 (Cormorant Garamond italic bold).
+              Added weight 1,700 to the Google Fonts URL so the browser fetches the 700-weight italic.
+
+            BUG FIX 2 — Address pill border darker and thicker:
+              .location-pill border changed from "1px solid rgba(30,36,22,0.2)" to
+              "2px solid rgba(30,36,22,0.55)" — doubled stroke width, tripled opacity.
+
+            BUG FIX 3 — "Opening Announcement" label removed:
+              The <p class="section-label">Opening Announcement</p> above the flyer image removed.
+              .flyer-section and .flyer-img CSS also removed as those classes are no longer used.
+
+            BUG FIX 4 — "A Glimpse of TAAL" heading bigger and bolder:
+              Added font-size: 1.15rem and font-weight: 700 to .carousel-section .section-label
+              (was inheriting the base .section-label at 0.68rem and weight 600).
+              letter-spacing increased to 0.3em.
+
+            BUG FIX 5 — Footer readability improvements:
+              .footer-tagline: font-weight set to 700, color opacity increased from 0.55 to 0.9
+              (bold italic "The Rhythm of Indian Dining" now clearly legible on dark background).
+              .footer-address: color opacity increased from 0.3 to 0.75.
+              .footer-instagram: color opacity increased from 0.4 to 0.75.
+
+            FEATURE — Slideshow merged with flyer section, old separate carousel removed:
+              The separate flyer section (static single image) was removed.
+              The opening-announcement flyer (Branding/PHOTO-2026-06-15-16-35-54_2.jpg) is now
+              slide 1 in the carousel, followed by the branding photo, and two interior shots.
+              The carousel now appears immediately after the header (where the flyer section was).
+              The old separate dark-green carousel section that came after the flyer is removed.
+              Images now use object-fit: contain (was cover) with a fixed height clamp(340px,55vw,560px)
+              so every image is displayed in full without cropping — no need to click to expand.
+              Lightbox HTML, CSS, and JavaScript removed entirely.
+              Cursor: zoom-in removed from carousel slides.
+
 2026-06-17: Coming Soon page built from scratch (Build.md).
             Full website stripped down to a single-page Coming Soon layout. index.html rewritten
             entirely. css/styles.css, css/animations.css, js/main.js, js/menu.js are no longer
