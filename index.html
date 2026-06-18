@@ -155,12 +155,12 @@
     .carousel-section {
       width: 100%;
       padding: 4rem 0;
-      background: var(--green-dark);
+      background: var(--off-white);
       overflow: hidden;
     }
 
     .carousel-section .section-label {
-      color: var(--gold);
+      color: var(--cognac);
       text-align: center;
       display: block;
       margin-bottom: 2rem;
@@ -170,8 +170,9 @@
     }
 
     .carousel-wrap {
-      max-width: 860px;
+      max-width: 1040px;
       margin: 0 auto;
+      padding: 0 1rem;
     }
 
     .carousel-track {
@@ -187,9 +188,9 @@
 
     .carousel-slide {
       flex: 0 0 100%;
-      height: clamp(340px, 55vw, 560px);
+      height: clamp(420px, 70vw, 720px);
       overflow: hidden;
-      background: var(--green-dark);
+      background: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -206,11 +207,11 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(201,162,39,0.85);
-      color: var(--green-dark);
+      background: rgba(30,36,22,0.75);
+      color: var(--gold-pale);
       border: none;
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
@@ -220,7 +221,7 @@
       z-index: 10;
     }
 
-    .carousel-btn:hover { background: var(--gold-light); }
+    .carousel-btn:hover { background: rgba(30,36,22,0.95); }
     .carousel-btn-prev { left: 0.75rem; }
     .carousel-btn-next { right: 0.75rem; }
 
@@ -235,7 +236,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: rgba(201,162,39,0.25);
+      background: rgba(30,36,22,0.2);
       border: none;
       cursor: pointer;
       transition: background 0.25s ease, transform 0.25s ease;
@@ -243,7 +244,7 @@
     }
 
     .carousel-dot.active {
-      background: var(--gold);
+      background: var(--cognac);
       transform: scale(1.5);
     }
 
