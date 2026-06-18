@@ -34,6 +34,25 @@
       --font-ui:      'Montserrat', sans-serif;
     }
 
+    /* ── TOP BAR ── */
+    .top-bar {
+      width: 100%;
+      background: var(--green-dark);
+      text-align: center;
+      padding: 0.55rem 1rem;
+    }
+
+    .top-bar a {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: rgba(232,208,144,0.8);
+      transition: color 0.2s;
+    }
+
+    .top-bar a:hover { color: var(--gold-pale); }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
@@ -192,7 +211,7 @@
     }
 
     .carousel-slide img {
-      width: 80%;
+      width: 60%;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -282,6 +301,17 @@
       margin-bottom: 1.25rem;
     }
 
+    .footer-phone {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: rgba(232,208,144,0.75);
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+    .footer-phone:hover { color: rgba(232,208,144,0.9); }
+
     .footer-email {
       display: block;
       font-family: var(--font-ui);
@@ -335,6 +365,11 @@
 </head>
 
 <body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <a href="tel:9845298225">(984) 529-TAAL (8225)</a>
+  </div>
 
   <!-- Header -->
   <header class="header">
@@ -418,6 +453,7 @@
     <p class="footer-name">TAAL Indian Kitchen &amp; Bar</p>
     <p class="footer-tagline">The Rhythm of Indian Dining</p>
     <p class="footer-address">310 W Franklin St, Chapel Hill, NC 27516</p>
+    <a href="tel:9845298225" class="footer-phone">(984) 529-TAAL (8225)</a>
 
     <a href="mailto:info@taaldining.com" class="footer-email">info@taaldining.com</a>
 
@@ -463,7 +499,7 @@
       // Resize track to match the natural aspect ratio of the current image
       function updateTrackHeight() {
         var img = slides[current].querySelector('img');
-        var w = inner.offsetWidth * 0.8;
+        var w = inner.offsetWidth * 0.6;
         if (img.naturalWidth > 0 && img.naturalHeight > 0) {
           track.style.height = Math.round(w * img.naturalHeight / img.naturalWidth) + 'px';
         }
