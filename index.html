@@ -562,17 +562,33 @@
 
   <script>
     (function () {
-      const inner = document.getElementById('carouselInner');
-      const track = inner.parentElement;
-      const dotsWrap = document.getElementById('carouselDots');
-      const slides = inner.querySelectorAll('.carousel-slide');
-      const total = slides.length;
-      let current = 0;
-      let autoTimer;
+      var inner = document.getElementById('carouselInner');
+      var track = inner.parentElement;
+      var dotsWrap = document.getElementById('carouselDots');
 
-      // Build dots
-      slides.forEach(function (_, i) {
-        const dot = document.createElement('button');
+      // Snapshot real slides before cloning
+      var origSlides = Array.from(inner.querySelectorAll('.carousel-slide'));
+      var total = origSlides.length;
+
+      // Clone first and last slides so the loop wraps seamlessly in both directions
+      // DOM order: [lastClone] [s0] [s1] … [s(n-1)] [firstClone]
+      var firstClone = origSlides[0].cloneNode(true);
+      var lastClone  = origSlides[total - 1].cloneNode(true);
+      inner.appendChild(firstClone);
+      inner.insertBefore(lastClone, origSlides[0]);
+
+      // Real slide i is now at DOM position i+1
+      var current = 0;   // real index 0..total-1
+      var busy = false;
+      var autoTimer;
+
+      // Start positioned at the first real slide (DOM pos 1) with no animation
+      inner.style.transition = 'none';
+      inner.style.transform  = 'translateX(-100%)';
+
+      // ── Dots ──
+      origSlides.forEach(function (_, i) {
+        var dot = document.createElement('button');
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
         dot.setAttribute('aria-label', 'Image ' + (i + 1) + ' of ' + total);
         dot.setAttribute('role', 'tab');
@@ -586,46 +602,87 @@
         });
       }
 
-      // Resize track to match the natural aspect ratio of the current image
+      // ── Track height ──
       function updateTrackHeight() {
-        var img = slides[current].querySelector('img');
+        var img = origSlides[current].querySelector('img');
         var w = inner.offsetWidth * 0.6;
         if (img.naturalWidth > 0 && img.naturalHeight > 0) {
           track.style.height = Math.round(w * img.naturalHeight / img.naturalWidth) + 'px';
         }
       }
 
+      // ── Low-level slide helper ──
+      function slideTo(domPos, animate) {
+        inner.style.transition = animate
+          ? 'transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+          : 'none';
+        inner.style.transform = 'translateX(-' + (domPos * 100) + '%)';
+      }
+
+      // ── Directional advance (handles infinite loop via clones) ──
+      function advance(dir) {
+        if (busy) return;
+        busy = true;
+        var nextDom = (current + 1) + dir;   // current real slide lives at DOM pos current+1
+        slideTo(nextDom, true);
+
+        inner.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName !== 'transform') return;
+          inner.removeEventListener('transitionend', handler);
+
+          if (nextDom === total + 1) {
+            // Arrived at firstClone — silently snap to real slide 0
+            slideTo(1, false);
+            current = 0;
+          } else if (nextDom === 0) {
+            // Arrived at lastClone — silently snap to real last slide
+            slideTo(total, false);
+            current = total - 1;
+          } else {
+            current = nextDom - 1;
+          }
+          syncDots();
+          updateTrackHeight();
+          busy = false;
+        });
+        resetAuto();
+      }
+
+      // ── Direct jump (dot clicks) ──
       function goTo(idx) {
+        if (busy) return;
+        busy = true;
         current = ((idx % total) + total) % total;
-        inner.style.transition = 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)';
-        inner.style.transform = 'translateX(-' + (current * 100) + '%)';
+        slideTo(current + 1, true);
         syncDots();
         updateTrackHeight();
         resetAuto();
+        inner.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName !== 'transform') return;
+          inner.removeEventListener('transitionend', handler);
+          busy = false;
+        });
       }
 
       function resetAuto() {
         clearInterval(autoTimer);
-        autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
+        autoTimer = setInterval(function () { advance(1); }, 7000);
       }
 
-      // Set initial height once first image is ready
-      var firstImg = slides[0].querySelector('img');
+      // Initial height
+      var firstImg = origSlides[0].querySelector('img');
       if (firstImg.complete && firstImg.naturalWidth > 0) {
         updateTrackHeight();
       } else {
         firstImg.addEventListener('load', updateTrackHeight);
       }
-
-      // Re-measure on resize
       window.addEventListener('resize', updateTrackHeight, { passive: true });
 
-      document.getElementById('prevBtn').addEventListener('click', function () { goTo(current - 1); });
-      document.getElementById('nextBtn').addEventListener('click', function () { goTo(current + 1); });
+      document.getElementById('prevBtn').addEventListener('click', function () { advance(-1); });
+      document.getElementById('nextBtn').addEventListener('click', function () { advance(1); });
 
       // Touch swipe
-      var touchStartX = 0;
-      var touchStartY = 0;
+      var touchStartX = 0, touchStartY = 0;
       inner.addEventListener('touchstart', function (e) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
@@ -634,7 +691,7 @@
         var dx = touchStartX - e.changedTouches[0].clientX;
         var dy = touchStartY - e.changedTouches[0].clientY;
         if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-          goTo(current + (dx > 0 ? 1 : -1));
+          advance(dx > 0 ? 1 : -1);
         }
       }, { passive: true });
 
@@ -652,7 +709,7 @@
 
       function openLightbox(idx) {
         lightboxIndex = ((idx % total) + total) % total;
-        var img = slides[lightboxIndex].querySelector('img');
+        var img = origSlides[lightboxIndex].querySelector('img');
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         lightboxCounter.textContent = (lightboxIndex + 1) + ' / ' + total;
@@ -665,7 +722,7 @@
         document.body.style.overflow = '';
       }
 
-      slides.forEach(function (slide, i) {
+      origSlides.forEach(function (slide, i) {
         slide.addEventListener('click', function () { openLightbox(i); });
       });
 
